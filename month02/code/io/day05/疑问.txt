@@ -1,0 +1,12 @@
+1.io
+换行会打印什么内容
+
+2.
+file_= open("1.txt","r")
+while True:
+    data = file_.read(2)
+    if data is None:  # 为什么
+        break
+    print(data)
+
+3.怎么在一行尾部追加写

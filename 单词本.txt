@@ -1,0 +1,20 @@
+Sequential Storage 顺序存储
+Linked Storage 链式存储
+linked data structure 链式数据结构
+Indexed Storage 索引存储
+root 根
+subtree 子树
+buffer 缓冲区
+socket 套接字
+BrokenPipeError 管道破裂错误,通信中断会出现这个异常
+request 请求
+response 响应
+process 进程
+thread 线程
+multiprocessing 多重处理
+async 异步
+unsigned 无符号
+auto_increment 自增
+interval 间隔
+register 注册
+stash 隐藏

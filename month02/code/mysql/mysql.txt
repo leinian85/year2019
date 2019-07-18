@@ -1,0 +1,29 @@
+create database grade charset=utf8;
+create table student(
+id int primary key auto_increment,
+name varchar(32) not null,
+age int,
+hobby set('football','computer','running','basketball'),
+score float,
+comment text
+);
+
+insert into student(name,age,hobby,score,comment) values('陈昆',65,'running',70,'');
+insert into student(name,age,hobby,score,comment)
+values('玄冥二老',75,'football',50,'');
+insert into student(name,age,hobby,score,comment)
+values('周芷若',25,'running,computer',80,'');
+insert into student(name,age,hobby,score,comment)
+values('欧阳克',27,'',80,'');
+insert into student(name,age,hobby,score,comment)
+values('杨康',25,'football,computer,running','basketball',40,'');
+insert into student(name,age,hobby,score,comment)
+values('欧阳锋',65,'computer',90,'');
+insert into student(name,age,hobby,score,comment)
+values('梅超风',35,'basketball',20,'');
+
+select * from student where age <10 or age >14;
+select * from student where hobby like '%computer%';
+select * from student where age >= 15 and hobby like '%football%';
+select * from student where score<60 and hobby is not null;
+select name,score from student where score>=90;

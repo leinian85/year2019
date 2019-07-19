@@ -7,7 +7,8 @@
 ### 2.GIT
     配置:
     系统级配置: git config --system [选项]
-    > sudo git config --system user.name tarena
+    $ git config --system user.name tarena
+    $ sudo git config --system user.name tarena
     会在/etc下创建一个 gitconfig 的配置文件
     > cat /etc/gitconfig 
 ```

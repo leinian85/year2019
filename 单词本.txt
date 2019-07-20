@@ -18,3 +18,4 @@ auto_increment 自增
 interval 间隔
 register 注册
 stash 隐藏
+encrypt 加密

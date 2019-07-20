@@ -19,3 +19,5 @@ interval 间隔
 register 注册
 stash 隐藏
 encrypt 加密
+concur 并发
+directory 目录

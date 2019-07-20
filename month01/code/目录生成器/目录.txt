@@ -1,0 +1,4 @@
+  目录1
+    文件1
+    文件2
+  get_directory.py

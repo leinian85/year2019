@@ -1,7 +1,7 @@
 import sys
 import os
 
-gitignore = ("__init__.py", "目录.md")
+gitignore = ("__init__.py", "目录.md", "get_directory.py")
 dict_file = {"py": "python文件", "MP3": "音频", "mp3": "音频"}
 
 path = "."
@@ -21,7 +21,8 @@ def get_list(level, file_path):
     for file in os.listdir(file_path):
         if file not in gitignore:
             new_file = file_path + "/" + file
-            list_txt = list_txt + flag + file + "\n"
+            file_name = file if os.path.isfile(new_file) else "[" + file + "]"
+            list_txt = list_txt + flag + file_name + "\n"
             if not os.path.isfile(new_file):
                 dir = True
                 new_level = level + 1

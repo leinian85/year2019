@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<H1 style="text-align:center">HTML5 &lt;day01 &gt;</H1>
+<hr>
+<h2>1.HTML 文档片断</h2>
+<h4>1-1 问题</h4>
+<p>创建如图1-1所示的HTML页面</p>
+
+<h4>1-2 方案</h4>
+<p>使用HTML完成效果</p>
+
+<h4>1-3 实现</h4>
+<p>创建index.html完成效果</p>
+
+<div style="text-align:center">
+    <table border="1" width="600px" cellspacing="0">
+        <caption>课程表</caption>
+        <tr style="background-color:#EC7AB0;text-align:left;height:30px">
+            <td colspan="3">姓名:</td>
+            <td colspan="3">班级:</td>
+        </tr>
+        <tr style="background-color:#CE7F79">
+            <td width="100px">星期</td>
+            <td>一</td>
+            <td>二</td>
+            <td>三</td>
+            <td>四</td>
+            <td>五</td>
+        </tr>
+        <tr>
+            <td rowspan="4" style="height:120px;background:#9A61AB">上<br/><br/>午</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td colspan="6" style="background:#61BE41">午休时间 12:00-14:00</td>
+        </tr>
+        <tr>
+            <td rowspan="3" style="background:#F49E9F">下<br/><br/>午</td>
+            <td>&nbsp;&blacktriangleright;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+    </table>
+</div>
+
+<div width="990px">
+    <table>
+        <tr>
+            <th width="610px" style="text-align:left">主题</th>
+            <th>回复/浏览</th>
+            <th>作者</th>
+            <th>时间</th>
+        </tr>
+        <tr>
+            <td>
+                <table>
+                    <tr>
+                        <td>银灰色的,很酷</td>
+                    </tr>
+                    <tr>
+                        <td>性价比超高,活动给力</td>
+                    </tr>
+                    <tr>
+                        <td>外形精致,值得购买</td>
+                    </tr>
+                    <tr>
+                        <td>支持,不错</td>
+                    </tr>
+                </table>
+            </td>
+            <td>
+                <table>
+                    <tr>
+                        <td>0/0</td>
+                    </tr>
+                    <tr>
+                        <td>0/0</td>
+                    </tr>
+                    <tr>
+                        <td>0/0</td>
+                    </tr>
+                    <tr>
+                        <td>0/0</td>
+                    </tr>
+                </table>
+            </td>
+            <td>
+                <table>
+                    <tr>
+                        <td>2001年冬天</td>
+                    </tr>
+                    <tr>
+                        <td>xpx2001</td>
+                    </tr>
+                    <tr>
+                        <td>xpx2001</td>
+                    </tr>
+                    <tr>
+                        <td>2001年冬天</td>
+                    </tr>
+                </table>
+            </td>
+            <td>
+                <table>
+                    <tr>
+                        <td>2014-11-19 13:54:40</td>
+                    </tr>
+                    <tr>
+                        <td>2014-11-18 10:21:29</td>
+                    </tr>
+                    <tr>
+                        <td>2014-11-18 15:27:58</td>
+                    </tr>
+                    <tr>
+                        <td>2014-11-19 10:22:27</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div style="text-align:left">
+    <form action="#">
+        <table border="0">
+            <tr>
+                <td>
+                    <div>
+                        <label for="name">姓名:</label>
+                        <input type="text" name="name" id="name">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div>
+                        <label for="pass">密码:</label>
+                        <input type="password" name="pass" id="pass">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div>
+                        <label for="xh">喜好:</label>
+                        <input type="checkbox" name="xh" id="xh" value="1">游泳
+                        <input type="checkbox" name="xh" id="xh" value="2">打球
+                        <input type="checkbox" name="xh" id="xh" value="3">跑步
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div>
+                        <label for="sex">性别:</label>
+                        <input type="radio" name="sex" id="sex" value="1" checked>男
+                        <input type="radio" name="sex" id="sex" value="0">女
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div>
+                        <label for="xl">学历:</label>
+                        <select name="xl" id="xl">
+                            <option value="1">硕士</option>
+                            <option value="2">博士</option>
+                            <option value="3">研究生</option>
+                        </select>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div>
+                        <table>
+                            <tr>
+                                <td><label for="jj">简介:</label></td>
+                                <td><textarea name="jj" id="jj" cols="30" rows="10"></textarea></td>
+                            </tr>
+                        </table>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td align="center">
+                    <div>
+                        <input type="submit" value="提交">
+                        <input type="reset" value="重置">
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+    </form>
+</div>
+</body>
+</html>

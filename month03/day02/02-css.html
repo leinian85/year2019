@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS</title>
+    <style>
+        
+        /* 表示父子关系 div p */
+        div p{
+            color:chartreuse
+        }
+
+        div p span{
+            color: black
+        }
+
+        div,p,h3{
+            color: blue
+        }
+        *{
+            color: brown
+        }
+    </style>
+</head>
+<body>
+    <div>
+    <div>今天</div>
+    <p>明天</p>
+    <h3>每天</h3>
+</div>
+    <div>
+        <p>我是一个子类元素
+            <span>
+                    我是一个孙子类元素
+            </span>
+        </p>
+    </div>
+</body>
+</html>

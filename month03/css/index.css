@@ -1,0 +1,19 @@
+#p1{
+    color:red;
+}
+#p2{
+    color: darkorange
+}
+#div1{
+    background:yellow;
+}
+*{
+    margin: 0px;
+    padding: 10px;
+}
+p{
+    color: cyan
+}
+.blue{
+    color: blue
+}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>伪类</title>
+    <style>
+        #div1 {
+            margin: 0px
+        }
+
+        * {
+            margin: 5px
+        }
+
+        form {
+            margin: 0px
+        }
+
+        .box {
+            width: 260px;
+            background: blue;
+            color: #fff;
+            padding: 50px;
+            text-align: center
+        }
+
+        .box:hover {
+            background: black
+        }
+
+        #name:focus {
+            background: yellow;
+            color: red;
+        }
+
+        a:link {
+            color: greenyellow;
+        }
+
+        a:visited {
+            color: crimson;
+        }
+
+        a:hover {
+            color: blueviolet;
+        }
+
+        a:active {
+            color: cyan;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 有一个div元素,默认一个背景色,鼠标移动到上面之后变成另外一个颜色 -->
+    <div class="box">
+        我会变背景色
+    </div>
+
+    <div id="div1">
+        <form action="#">
+            <div>
+                <label for="name">姓名:</label>
+                <input type="text" name="name" id="name">
+            </div>
+        </form>
+    </div>
+    <div></div>
+    <a href="http://www.baidu.com" target="_blank">百度</a>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+        }
+        div{
+            /* border:solid 1px red; */
+            margin:0 auto;
+        }
+        img{
+            width:100%;
+            height:100%;
+        }
+        p{
+            color: aliceblue;
+        }
+        #parent{
+            width:500px;
+            height:500px;
+            position:relative;
+        }
+        #child{
+            width:100%;
+            height:30px;
+            /* border:solid 1px blue; */
+            position:absolute;
+            bottom:0;
+            background-color:rgba(190, 219, 218, 0.3)
+            
+        }
+    </style>
+</head>
+
+<body>
+    <div id="parent">
+        <img src="../img/wl02.jpg" alt="">
+        <div id="child"><p>&nbsp;&nbsp;网络图片01</p></div>
+    </div>
+</body>
+
+</html>

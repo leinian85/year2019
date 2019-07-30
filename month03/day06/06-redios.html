@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #pic {
+            width: 273px;
+            height: 300px;
+            margin: 0 auto;
+        }
+
+        .img {
+            width: 100%;
+        }
+
+        fieldset {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 1.写元素 2.写样式 3.写逻辑 4.微调 -->
+    <div id="pic">
+        <fieldset>
+            <legend>选择按钮</legend>
+            <input type="radio" name="pic" id="pic1" checked>google
+            <input type="radio" name="pic" id="pic2">百度
+            <input type="radio" name="pic" id="pic3">京东
+            <input type="radio" name="pic" id="pic4">阿里
+        </fieldset>
+        <div class="img">
+                <img id = "img" src="../img/google.svg">
+            </div>
+    </div>
+    <script>
+        var btnpic1 = document.getElementById("pic1");
+        var btnpic2 = document.getElementById("pic2");
+        var btnpic3 = document.getElementById("pic3");
+        var btnpic4 = document.getElementById("pic4");
+        var img = document.getElementById("img");
+        btnpic1.onclick=function(){
+            img.setAttribute("src","../img/google.svg");
+        };
+        btnpic2.onclick=function(){
+            img.setAttribute("src","../img/baidu.jpeg");
+        };
+        btnpic3.onclick=function(){
+            img.setAttribute("src","../img/jd.png");
+        };
+        btnpic4.onclick=function(){
+            img.setAttribute("src","../img/ali.jpeg");
+        }
+    </script>
+</body>
+
+</html>

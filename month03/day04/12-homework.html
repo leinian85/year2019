@@ -6,37 +6,104 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
-        #head{
-            height:405px;
-            width:520px;
-            margin: 0 auto;
-            background-color: darkgrey;
-            position:relative;
+        body{
+            background-color: black;
         }
-        #photo{
-            height:140px;
-            width:140px;
-            border: solid 6px #ffffff;
-            border-radius: 77px 77px;
-            position:absolute;
-            left: 181px;
-            top:25px;
-            background-image: url(../img/jt.png);
+        .home{
+            width: 600px;
+            height: 600px;
+            background-color: aliceblue;
+            margin: 0 auto;
+            position: relative;
+        }
+        .home>div{
+            float: left;
+            /* border: solid 1px red; */
+        }
+        .left{
+            width: 100px;
+            height: 100%;
+            border-bottom: solid 1px rosybrown;
+        }
+        .left>div:nth-child(1){
+            width: 90px;
+            height: 90px;
+            border-radius: 45px;
+            margin: 5px auto;
+            background-color: aliceblue;
+            background-image: url(../img/wl02.jpg);
             background-size: 100% 100%;
         }
-        #head>div{
-            border: solid 1px red;
+        .left>div:nth-child(2){
+            margin:0 0 0 5px;
+            border-bottom:solid 1px black;
+        }
+        .right{
+            width: 486px;
+            height: 100%;
+            margin: 0 0 0 10px;
+        }
+        .imgs{
+            width: 310px;
+        }
+        .imgs>img{
+            width: 100px;
+            height: 100px;
         }
     </style>
 </head>
 <body>
-    <div id="head">
-        <div id = "photo"></div>
-        <div>budinger</div>
-        <div>Web前段工程师</div>
-        <div>女,北京市</div>
-        <div>懒人一个,什么都没有写</div>
-        <div></div>
+    <div class = "home">
+        <div class="left"> 
+            <div><img src="" alt=""></div>
+            <div></div>
+        </div>
+        <div class = "right">
+            <h3>BUleNiceInc</h3>
+            <p>Number(param) 参数为要进行数据类型转换的变量或值，返回转换后的结果: 如果转换成功,
+                返回number值 如果转换失败,返回NaN,(Not a Number)，只要数据中存在非number字符,
+                一律转换失败，返回 NaN,parseInt(param) 参数为要解析的数据 作用 : 从数据中解析整数值 过程 : 
+                1. 如果参数为非字符串类型,会自动转成字符串 2. 从左向右依次对每一位字符转number,转换失败则停止
+                向后解析,返回结果</p>
+            <div class ="imgs">
+                <img src="../img/wl02.jpg" alt="">
+                <img src="../img/wl02.jpg" alt="">
+                <img src="../img/wl02.jpg" alt="">
+                <img src="../img/wl02.jpg" alt="">
+                <img src="../img/wl02.jpg" alt="">
+                <img src="../img/wl02.jpg" alt="">
+                <img src="../img/wl02.jpg" alt="">
+                <img src="../img/wl02.jpg" alt="">
+                <img src="../img/wl02.jpg" alt="">
+            </div>
+        </div>
     </div>
+    <div class = "home">
+            <div class="left"> 
+                <div><img src="" alt=""></div>
+                <div></div>
+            </div>
+            <div class = "right">
+                <h3>BUleNiceInc</h3>
+                <p>Number(param) 参数为要进行数据类型转换的变量或值，返回转换后的结果: 如果转换成功,
+                    返回number值 如果转换失败,返回NaN,(Not a Number)，只要数据中存在非number字符,
+                    一律转换失败，返回 NaN,parseInt(param) 参数为要解析的数据 作用 : 从数据中解析整数值 过程 : 
+                    1. 如果参数为非字符串类型,会自动转成字符串 2. 从左向右依次对每一位字符转number,转换失败则停止
+                    向后解析,返回结果</p>
+                <div class ="imgs">
+                    <img src="../img/wl02.jpg" alt="">
+                    <img src="../img/wl02.jpg" alt="">
+                    <img src="../img/wl02.jpg" alt="">
+                    <img src="../img/wl02.jpg" alt="">
+                    <img src="../img/wl02.jpg" alt="">
+                    <img src="../img/wl02.jpg" alt="">
+                    <img src="../img/wl02.jpg" alt="">
+                    <img src="../img/wl02.jpg" alt="">
+                    <img src="../img/wl02.jpg" alt="">
+                </div>
+            </div>
+        </div>
+        
+        
 </body>
 </html>

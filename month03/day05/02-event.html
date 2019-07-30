@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        function aa(){
+        // 变量定义
+        a = 2;
+        var b = c = 1;
+        var d = 3,
+            e = 4;
+
+        // 常量定义
+        const PI = 3.1415926;
+        var pi = PI.toFixed(2); //保留2为小数
+
+        var streName = "张无忌";
+        var typeName = typeof (streName);
+
+        var isExit = false;
+        var typeBool = typeof (isExit);
+
+
+
+        var strNum = "3.14";
+        num = Number(strNum); // 转换成数字类型
+        intNum = parseInt(strNum); //转换成整形
+        floatNum = parseFloat(strNum); //转换成浮点型
+
+        strNUm2 = num.toString(); //转换成string
+        strToInt = parseInt(strNUm2); //转换成整形
+        strToFloat = parseFloat(strNUm2); //转换成浮点型
+        tip2=document.getElementById('tip2');
+        text = document.getElementById('text');tip2.innerText=text.value
+        }
+    </script>
+</head>
+
+<body>
+    <div id="tip">
+
+    </div>
+    <div>
+        <button onclick="tip = document.getElementById('tip');tip.innerText = strToFloat;">点我一下</button>
+        <script>
+            tip = document.getElementById('tip');
+            tip.innerText = 'HELLO';
+        </script>
+    </div>
+
+    <div>
+        <div id = "tip2"></div>
+        <input type="text" id = "text">
+        <button onclick="aa()">赋值</button>
+        <script>
+            var a = "a";
+            // alert(a.charCodeAt())
+            alert('97'==97)
+        </script>
+    </div>
+
+</body>
+
+</html>

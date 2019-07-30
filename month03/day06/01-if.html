@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #nav{
+            border: solid 0px red;
+            width: 300px;
+            height:100px;
+            margin:0px auto;
+        }
+        #nav>.title{
+            text-align: center;
+            border-bottom:solid 1px #cccccc;
+            background-color: #eeeeee;
+            cursor: pointer; 
+        }
+        #nav>.con{
+            padding: 0 8px;
+        }
+        
+    </style>
+    
+</head>
+<body>
+    <div id = "nav">
+        <div class="title" onclick="show()">正文内容</div>
+        <div class="con">
+            每天都这么热
+            每天都这么热
+            每天都这么热
+            每天都这么热
+            每天都这么热
+        </div>
+    </div>
+    <script>
+        function show(){
+            var con = document.getElementsByClassName("con")[0];
+            console.log(con)
+            var statu = con.style.display;
+            con.style.display = statu==""?"none":"";
+            
+        }
+    </script>
+</body>
+</html>

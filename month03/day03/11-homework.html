@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>导航</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        /* div {
+            border: solid 1px red;
+        } */
+
+        #head {
+            height: 43px;
+            width: 410px;
+            margin: 0 auto;
+            line-height: 43px;
+            background-color: cyan;
+        }
+
+        .navigat {
+            height: 30px;
+            width: 50px;
+            float: left;
+            text-align: center;
+            line-height: 30px;
+            margin: 7px 15px;
+        }
+
+        #head>div:nth-child(2):hover {
+            background-color: red;
+            color: aliceblue;
+        }
+
+        #head>div:nth-child(3):hover {
+            background-color: red;
+            color: aliceblue;
+        }
+
+        #head>div:nth-child(4):hover {
+            background-color: red;
+            color: aliceblue;
+        }
+
+        #head>div:nth-child(5):hover {
+            background-color: red;
+            color: aliceblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="head">
+        <div class="navigat" hover="background-color:seashell">难度:</div>
+        <div class="navigat">全部</div>
+        <div class="navigat">初级</div>
+        <div class="navigat">中级</div>
+        <div class="navigat">高级</div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>促销广告</title>
+    <style>
+        *{
+            padding: 0;
+            margin:0;
+        }
+        /* div{
+            border:solid 0 red;
+        } */
+        #img{
+            height:300px;
+            width:300px;
+            margin:0 auto;
+            border:solid 1px red;
+            position:relative;
+
+        }
+         #img>div:nth-child(1){
+            width: 60px;
+            height: 40px;
+            border-radius: 0 5px 5px 0;
+            background-color: red;
+            color:seashell;
+            font-size: 25px;
+        }
+       #img>div:nth-child(2){
+            width: 100px;
+            height: 35px;
+            font-size: 25px;
+            margin:0 0 0 77px;
+        }
+        #img>div:nth-child(3){
+            width: 150px;
+            height: 35px;
+            font-size: 25px;
+            color:silver;
+            margin:0 auto;
+        }
+        #img>div:nth-child(4){
+            width: 150px;
+            height: 175px;
+            margin:0 auto;
+            background-image: url(../img/img07.png);
+            background-repeat: no-repeat;
+            background-position-x: center;
+        
+        }
+    </style>
+</head>
+<body>
+    <hr/>
+    <div id="img">
+        <div>低价</div>
+        <div>母婴馆</div>
+        <div>秒杀低至1元</div>
+        <div style="float: clear;"></div>
+    </div>
+</body>
+</html>

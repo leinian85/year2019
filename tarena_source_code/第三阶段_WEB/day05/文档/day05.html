@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>day05.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback";
+	font-size: 14px;
+	padding: 0 12px;
+	line-height: 22px;
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	color: #4080D0;
+	text-decoration: none;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+h1 code,
+h2 code,
+h3 code,
+h4 code,
+h5 code,
+h6 code {
+	font-size: inherit;
+	line-height: auto;
+}
+
+a:hover {
+	color: #4080D0;
+	text-decoration: underline;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left: 5px solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 14px;
+	line-height: 19px;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+.mac code {
+	font-size: 12px;
+	line-height: 18px;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+/** Theming */
+
+.vscode-light,
+.vscode-light pre code {
+	color: rgb(30, 30, 30);
+}
+
+.vscode-dark,
+.vscode-dark pre code {
+	color: #DDD;
+}
+
+.vscode-high-contrast,
+.vscode-high-contrast pre code {
+	color: white;
+}
+
+.vscode-light code {
+	color: #A31515;
+}
+
+.vscode-dark code {
+	color: #D7BA7D;
+}
+
+.vscode-light pre:not(.hljs),
+.vscode-light code > div {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre:not(.hljs),
+.vscode-dark code > div {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre:not(.hljs),
+.vscode-high-contrast code > div {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+.vscode-light blockquote,
+.vscode-dark blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.vscode-high-contrast blockquote {
+	background: transparent;
+	border-color: #fff;
+}
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family:  "Meiryo", "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback";
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+</head>
+<body>
+<p>[TOC]</p>
+<h1 id="%E4%B8%80%E3%80%81-javascript-%E6%A6%82%E8%BF%B0">一、 JavaScript 概述</h1>
+<h2 id="1-%E4%BB%80%E4%B9%88%E6%98%AFjavascript">1. 什么是JavaScript</h2>
+<h4 id="1-javascript-%E4%BB%8B%E7%BB%8D">1) JavaScript 介绍</h4>
+<p>​		简称JS，是一种浏览器解释型语言，嵌套在HTML文件中交给浏览器解释执行。主要用来实现网页的动态效果，用户交互及前后端的数据传输等。</p>
+<h4 id="2-javascript-%E7%BB%84%E6%88%90">2) JavaScript 组成</h4>
+<ol>
+<li>核心语法 - ECMAScript 规范了JavaScript的基本语法</li>
+<li>浏览器对象模型 -BOM
+Browser Object Model，提供了一系列操作浏览器的方法</li>
+<li>文档对象模型 -DOM
+Document Object Model ，提供了一系列操作的文档的方法</li>
+</ol>
+<h2 id="2-%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F">2. 使用方式</h2>
+<ol>
+<li>元素绑定事件
+<ul>
+<li>事件 ：指用户的行为（单击，双击等）或元素的状态（输入框的焦点状态等）</li>
+<li>事件处理：元素监听某种事件并在事件发生后自动执行事件处理函数。</li>
+<li>常用事件：onclick (单击事件)</li>
+<li>语法 ：将事件名称以标签属性的方式绑定到元素上，自定义事件处理。</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-comment">&lt;!--实现点击按钮在控制台输出--&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onclick</span>=<span class="hljs-string">"console.log('Hello World');"</span>&gt;</span>点击<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+</div></code></pre>
+</li>
+<li>文档内嵌。使用<script type="text/javascript"></script>标签书写 JavaScript 代码
+<ul>
+<li>语法 ：</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/javascript"</span>&gt;</span><span class="actionscript">
+  alert(<span class="hljs-string">"网页警告框"</span>);
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</div></code></pre>
+<ul>
+<li>注意 ：<script></script>标签可以书写在文档的任意位置，书写多次，一旦加载到script标签就会立即执行内部的JavaScript代码，因此不同的位置会影响代码最终的执行效果</li>
+</ul>
+</li>
+<li>外部链接
+<ul>
+<li>创建外部的JavaScript文件 XX.JavaScript，在HTML文档中使用<script src=""></script>引入</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"index.JavaScript"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</div></code></pre>
+<ul>
+<li>注意 ：<script></script>既可以实现内嵌 JavaScript 代码，也可以实现引入外部的 JavaScript 文件，但是只能二选一。</li>
+</ul>
+</li>
+<li>JavaScript 输入语句
+<ul>
+<li>alert(&quot;&quot;); 普通的网页弹框</li>
+<li>prompt(&quot;&quot;); 接收用户输入的弹框，返回用户输入的内容</li>
+<li>console.log(); 控制台输出，多用于代码调试</li>
+<li>document.write(&quot;<h1>Hello</h1>&quot;);实现在动态在网页中写入内容。
+<ol>
+<li>可以识别HTML标签,脚本代码可以在文档任何地方书写，如果是普通写入（不涉及事件），区分代码的书写位置插入</li>
+<li>文档渲染结束后，再次执行此方法，会重写网页内容</li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+<h1 id="%E4%BA%8C%E3%80%81dom-%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86">二、DOM 事件处理</h1>
+<p>事件：指用户的行为或元素的状态。由指定元素监听相关的事件，并且绑定事件处理函数。
+事件处理函数：元素监听事件，并在事件发生时自动执行的操作。</p>
+<h4 id="1%EF%BC%89-%E4%BA%8B%E4%BB%B6%E5%87%BD%E6%95%B0%E5%88%86%E7%B1%BB">1） 事件函数分类</h4>
+<ol>
+<li>鼠标事件</li>
+</ol>
+<pre class="hljs"><code><div>onclick		<span class="hljs-comment">//单击</span>
+ondblclick	<span class="hljs-comment">//双击</span>
+onmouseover	<span class="hljs-comment">//鼠标移入</span>
+onmouseout	<span class="hljs-comment">//鼠标移出</span>
+onmousemove	<span class="hljs-comment">//鼠标移动</span>
+</div></code></pre>
+<ol start="2">
+<li>文档或元素加载完毕</li>
+</ol>
+<pre class="hljs"><code><div>onload		<span class="hljs-comment">//元素或文档加载完毕</span>
+</div></code></pre>
+<ol start="3">
+<li>表单控件状态监听</li>
+</ol>
+<pre class="hljs"><code><div>onfocus 	<span class="hljs-comment">//文本框获取焦点</span>
+onblur		<span class="hljs-comment">//文本框失去焦点</span>
+oninput		<span class="hljs-comment">//实时监听输入</span>
+onchange	<span class="hljs-comment">//两次输入内容发生变化时触发,或元素状态改变时触发</span>
+onsubmit	<span class="hljs-comment">//form元素监听,点击提交按钮后触发,通过返回值控制数据是否可以发送给服务器</span>
+</div></code></pre>
+<h4 id="2%EF%BC%89%E4%BA%8B%E4%BB%B6%E7%BB%91%E5%AE%9A%E6%96%B9%E5%BC%8F">2）事件绑定方式</h4>
+<ol>
+<li>内联方式
+将事件名称作为标签属性绑定到元素上
+例 :</li>
+</ol>
+<pre class="hljs"><code><div>&lt;button onclick=<span class="hljs-string">"alert()"</span>&gt;点击&lt;<span class="hljs-regexp">/button&gt;
+</span></div></code></pre>
+<ol start="2">
+<li>动态绑定
+获取元素节点，动态添加事件
+例 :</li>
+</ol>
+<pre class="hljs"><code><div>btn.onclick = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>)</span>{
+
+};
+</div></code></pre>
+<h4 id="3%EF%BC%89%E4%BA%8B%E4%BB%B6%E5%87%BD%E6%95%B0%E4%BD%BF%E7%94%A8">3）事件函数使用</h4>
+<ol>
+<li>onload
+常用于等待文档加载完毕再进行下一步操作</li>
+<li>鼠标事件</li>
+<li>表单事件
+onchange： 监听输入框前后内容是否发生变化;也可以监听按钮的选中状态
+onsubmit ：表单元素负责监听,允许返回布尔值,表示数据是否可以发送;返回true,允许发送;返回false,不允许提交</li>
+</ol>
+<h1 id="%E4%B8%89%E3%80%81%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95">三、基础语法</h1>
+<h2 id="1-%E8%AF%AD%E6%B3%95%E8%A7%84%E8%8C%83">1. 语法规范</h2>
+<ol>
+<li>JavaScript是由语句组成,语句由关键字，变量，常量，运算符，方法组成。</li>
+<li>分号可以作为语句结束的标志，也可以省略</li>
+<li>JavaScript严格区分大小写</li>
+<li>注释语法
+单行注释使用 //
+多行注释使用 /* */</li>
+</ol>
+<h2 id="2-javascript%E7%9A%84%E5%8F%98%E9%87%8F%E4%B8%8E%E5%B8%B8%E9%87%8F">2. JavaScript的变量与常量</h2>
+<h4 id="1-%E5%8F%98%E9%87%8F">1)  变量</h4>
+<ol>
+<li>作用 : 用于存储程序运行过程中可动态修改的数据</li>
+<li>语法 : 使用关键var声明,自定义变量名<pre class="hljs"><code><div><span class="hljs-keyword">var</span> a;		<span class="hljs-comment">//变量声明</span>
+a = <span class="hljs-number">100</span>;	<span class="hljs-comment">//变量赋值</span>
+<span class="hljs-keyword">var</span> b = <span class="hljs-number">200</span>; <span class="hljs-comment">//声明并赋值</span>
+<span class="hljs-keyword">var</span> m,n,k;	<span class="hljs-comment">//同时声明多个变量</span>
+<span class="hljs-keyword">var</span> j = <span class="hljs-number">10</span>,c = <span class="hljs-number">20</span>; <span class="hljs-comment">//同时声明并赋值多个变量</span>
+</div></code></pre>
+</li>
+<li>命名规范 :
+<ul>
+<li>变量名，常量名，函数名，方法名自定义，可以由数字，字母，下划线，$组成，禁止以数字开头</li>
+<li>禁止与关键字冲突(var const function if else for while do break case switch return class)</li>
+<li>变量名严格区分大小写</li>
+<li>变量名尽量见名知意,多个单词组成采用小驼峰,例如：&quot;userName&quot;</li>
+</ul>
+</li>
+<li>使用注意 :
+<ul>
+<li>变量如果省略var关键字,并且未赋值,直接访问会报错</li>
+<li>变量使用var关键字声明但未赋值,变量初始值为undefined</li>
+<li>变量省略var关键字声明,已被赋值,可正常使用.影响变量作用域</li>
+</ul>
+</li>
+</ol>
+<h4 id="2-%E5%B8%B8%E9%87%8F">2)  常量</h4>
+<ol>
+<li>作用 : 存储一经定义就无法修改的数据</li>
+<li>语法 : 必须声明的同时赋值<pre class="hljs"><code><div><span class="hljs-keyword">const</span> PI = <span class="hljs-number">3.14</span>;
+</div></code></pre>
+</li>
+<li>注意 :
+<ul>
+<li>常量一经定义,不能修改,强制修改会报错</li>
+<li>命名规范同变量,为了区分变量,常量名采用全大写字母</li>
+</ul>
+</li>
+<li>操作小数位
+toFixed(n); 保留小数点后 n 位
+使用 ：<pre class="hljs"><code><div> <span class="hljs-keyword">var</span> num = <span class="hljs-number">3.1415926</span>;
+ <span class="hljs-comment">//保留当前变量小数点后两位</span>
+ <span class="hljs-keyword">var</span> res = num.toFixed(<span class="hljs-number">2</span>); 
+</div></code></pre>
+</li>
+</ol>
+<h2 id="3-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B">3. 数据类型</h2>
+<h4 id="1-%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%EF%BC%88%E7%AE%80%E5%8D%95%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%EF%BC%89">1) 基本数据类型（简单数据类型）</h4>
+<ol>
+<li>
+<p>number 数值类型</p>
+<ul>
+<li>整数
+<ol>
+<li>十进制表示</li>
+</ol>
+<pre><code>```javascript
+ var a = 100;
+```
+2. 八进制表示
+   以0为前缀
+```javascript
+ var b = 021; //结果为十进制的 17
+```
+   使用 : 整数可以采用不同进制表示,在控制台输出时一律会按照十进制输出
+</code></pre>
+</li>
+<li>小数
+<ol>
+<li>小数点表示</li>
+</ol>
+<pre class="hljs"><code><div> <span class="hljs-keyword">var</span> m = <span class="hljs-number">1.2345</span>;
+</div></code></pre>
+<ol start="2">
+<li>科学计数法
+例 : 1.5e3
+e表示10为底,e后面的数值表示10的次方数
+1.5e3 等价于 1.5 * 10(3)</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>
+<p>string 字符串类型
+字符串 : 由一个或多个字符组成,使用&quot;&quot;或''表示，每一位字符都有对应的Unicode编码</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">var</span> s = <span class="hljs-string">"100"</span>;
+<span class="hljs-keyword">var</span> s1 = <span class="hljs-string">"张三"</span>;
+</div></code></pre>
+</li>
+<li>
+<p>boolean 布尔类型
+只有真和假两个值，布尔值与number值可以互相转换。true 为 1，false 为 0</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">var</span> isSave = <span class="hljs-literal">true</span>;
+<span class="hljs-keyword">var</span> isChecked = <span class="hljs-literal">false</span>;
+</div></code></pre>
+</li>
+<li>
+<p>undefined
+特殊值，变量声明未赋值时显示undefined</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">var</span> a;
+<span class="hljs-built_in">console</span>.log(a);<span class="hljs-comment">//undefined</span>
+</div></code></pre>
+</li>
+<li>
+<p>null 空类型
+定义对象引用时使用null，表示对象为空
+（1）引用数据类型
+主要指对象，函数等</p>
+</li>
+</ol>
+<p>​         （2）检测数据类型
+​                   typeof  变量或表达式
+​                   typeof (变量或表达式)</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">var</span> n = <span class="hljs-string">"asda"</span>;
+<span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">typeof</span> n);<span class="hljs-comment">//string</span>
+<span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">typeof</span>(n));<span class="hljs-comment">//string</span>
+</div></code></pre>
+<h2 id="4-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2">4. 数据类型转换</h2>
+<p>不同类型的数据参与运算时,需要转换类型</p>
+<h4 id="1-%E5%BC%BA%E5%88%B6%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2">1) 强制类型转换</h4>
+<ol>
+<li>转换字符串类型
+方法 : toString()
+返回转换后的字符串</li>
+</ol>
+<pre class="hljs"><code><div><span class="hljs-keyword">var</span> a = <span class="hljs-number">100</span>;
+a = a.toString(); <span class="hljs-comment">//"100"</span>
+<span class="hljs-keyword">var</span> b = <span class="hljs-literal">true</span>;
+b = b.toString(); <span class="hljs-comment">//"true"</span>
+</div></code></pre>
+<ol start="2">
+<li>转换number类型
+<ul>
+<li>Number(param)
+参数为要进行数据类型转换的变量或值，返回转换后的结果:
+如果转换成功,返回number值
+如果转换失败,返回NaN,(Not a Number)，只要数据中存在非number字符,一律转换失败，返回 NaN</li>
+<li>parseInt(param)
+参数为要解析的数据
+作用 : 从数据中解析整数值
+过程 :
+1. 如果参数为非字符串类型,会自动转成字符串
+2. 从左向右依次对每一位字符转number,转换失败则停止向后解析,返回结果</li>
+<li>parseFloat(param)
+作用 : 提取number值，包含整数和小数部分</li>
+</ul>
+</li>
+</ol>
+<h4 id="2-%E9%9A%90%E5%BC%8F%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%EF%BC%88%E8%87%AA%E5%8A%A8%E8%BD%AC%E6%8D%A2%EF%BC%89">2) 隐式类型转换（自动转换）</h4>
+<ol>
+<li>
+<p>当字符串与其他数据类型进行&quot;+&quot;运算时，表示字符串的拼接，不再是数学运算
+转换规则 ：将非字符串类型的数据转换成字符串之后进行拼接，最终结果为字符串</p>
+</li>
+<li>
+<p>其他情况下，一律将操作数转number进行数学运算</p>
+</li>
+</ol>
+<h2 id="5-%E8%BF%90%E7%AE%97%E7%AC%A6">5. 运算符</h2>
+<h4 id="1-%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97%E7%AC%A6">1) 赋值运算符</h4>
+<pre><code>= 将右边的值赋给左边变量
+</code></pre>
+<h4 id="2-%E7%AE%97%E6%95%B0%E8%BF%90%E7%AE%97%E7%AC%A6">2) 算数运算符</h4>
+<pre><code>+ - * / %  加 减 乘 除 取余
+</code></pre>
+<h4 id="3-%E7%AC%A6%E5%90%88%E8%BF%90%E7%AE%97%E7%AC%A6">3) 符合运算符</h4>
+<pre><code>+= -= *= /= %=
+</code></pre>
+<h4 id="4-%E8%87%AA%E5%A2%9E%E6%88%96%E8%87%AA%E5%87%8F%E8%BF%90%E7%AE%97%E7%AC%A6">4) 自增或自减运算符</h4>
+<pre><code>++ -- 变量的自增和自减指的是在自身基础上进行 +1或-1 的操作
+</code></pre>
+<p>注意：</p>
+<ul>
+<li>自增或自减运算符在单独与变量结合时，放前和放后没有区别</li>
+<li>如果自增或自减运算符与其他运算符结合使用，要区分前缀和后缀,做前缀，那就先++/--,再进行赋值或其他运算，如果做后缀，就先结合其他运算符，再进行++ / --</li>
+</ul>
+<h4 id="5-%E5%85%B3%E7%B3%BB%E8%BF%90%E7%AE%97%E7%AC%A6%E6%AF%94%E8%BE%83%E8%BF%90%E7%AE%97%E7%AC%A6">5) 关系运算符/比较运算符</h4>
+<pre><code>&gt; &lt; 
+&gt;= &lt;=
+==(相等) !=(相等)
+===(全等) !==(不全等)
+</code></pre>
+<ol>
+<li>关系运算符用来判断表达式之间的关系,结果永远是布尔值 true/false</li>
+<li>使用
+<ul>
+<li>字符串与字符串之间的比较
+依次比较每位字符的Unicode码，只要某位字符比较出结果，就返回最终结果</li>
+<li>其他情况
+一律将操作数转换为number进行数值比较，如果某一操作数无法转换number，则变成NaN参与比较运算，结果永远是false</li>
+</ul>
+</li>
+<li>相等与全等
+<ul>
+<li>相等 : 不考虑数据类型，只做值的比较(包含自动类型转换)</li>
+<li>全等 : 不会进行数据类型转换，要求数据类型一致并且值相等才判断全等</li>
+</ul>
+</li>
+</ol>
+<h4 id="6-%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E7%AC%A6">6) 逻辑运算符</h4>
+<ol>
+<li>&amp;&amp; 逻辑与
+表达式同时成立，最终结果才为true；1则1</li>
+<li>|| 逻辑或
+表达式中只要有一个成立,最终结果即为true; 有1则1</li>
+<li>! 逻辑非
+对已有表达式的结果取反
+注意 : 除零值以外，所有值都为真</li>
+</ol>
+<h4 id="7-%E4%B8%89%E7%9B%AE%E8%BF%90%E7%AE%97%E7%AC%A6">7) 三目运算符</h4>
+<p>语法 :</p>
+<pre class="hljs"><code><div>表达式1 ? 表达式2 : 表达式3;
+</div></code></pre>
+<p>过程 :
+判断表达式1是否成立,返回布尔值
+如果表达式1成立,执行表达式2;
+如果表达式1不成立,执行表达式3;</p>
+
+</body>
+</html>

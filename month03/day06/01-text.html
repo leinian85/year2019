@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        function fun01(){
+            tip = document.getElementById("tip");
+            tip.style.color = "rgb(255,0,0)";
+            tip.style.width = "100px";
+            tip.style.height = "100px";
+            // tip.style.backgroundColor = "red";
+            tip.style.border = "1px";
+            console.log(tip.style)
+            // alert(tip.innerText);
+            // try {
+            //     console.log(a)
+            // } catch (error) {
+            //     console.log(error.message)
+            // }
+        }
+    </script>
+</head>
+<body>
+    <div id="tip" onclick="fun01()">123456</div>
+</body>
+</html>

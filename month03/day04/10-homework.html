@@ -1,65 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>促销广告</title>
+    <title>Document</title>
     <style>
-        *{
-            padding: 0;
-            margin:0;
+        * {
+            margin: 0;
+            background-color: black
         }
-        /* div{
-            border:solid 0 red;
-        } */
-        #img{
-            height:300px;
-            width:300px;
-            margin:0 auto;
-            border:solid 1px red;
-            position:relative;
 
+        div {
+            border: solid 0px red;
+            background-color: aliceblue;
         }
-         #img>div:nth-child(1){
-            width: 60px;
-            height: 40px;
-            border-radius: 0 5px 5px 0;
-            background-color: red;
-            color:seashell;
+
+        #img {
+            width: 366px;
+            height: 184px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        #img>div:nth-child(1) {
+            height: 50px;
             font-size: 25px;
+            margin-left: 40px;
+            font-family: 'Arial','Microsoft YaHei','Lucida Sans';
         }
-       #img>div:nth-child(2){
-            width: 100px;
-            height: 35px;
-            font-size: 25px;
-            margin:0 0 0 77px;
+
+        .char {
+            padding: 0 0 0 169px;
+            font-size: 18px;
         }
-        #img>div:nth-child(3){
-            width: 150px;
-            height: 35px;
-            font-size: 25px;
-            color:silver;
-            margin:0 auto;
+
+        #img>div:nth-child(2) {
+            height: 57px;
+            color: seashell;
+            background-color: sienna;
         }
-        #img>div:nth-child(4){
-            width: 150px;
-            height: 175px;
-            margin:0 auto;
-            background-image: url(../img/img07.png);
-            background-repeat: no-repeat;
-            background-position-x: center;
-        
+
+        #img>div:nth-child(3) {
+            height: 29px;
+        }
+
+        #photo {
+            float: left;
+            width: 130px;
+            height: 135px;
+            position: absolute;
+            left: 20px;
+            top: 39px;
+        }
+
+        #photo>div:nth-child(1) {
+            width: 100%;
+            height: 80%;
+            background-image: url(../img/img01.png);
+            background-size: 100% 100%;
+        }
+
+        #photo>div:nth-child(2) {
+            text-align: center;
+            background-color: sienna;
         }
     </style>
 </head>
+
 <body>
-    <hr/>
     <div id="img">
-        <div>低价</div>
-        <div>母婴馆</div>
-        <div>秒杀低至1元</div>
-        <div style="float: clear;"></div>
+        <div>名中医推荐</div>
+        <div class="char">张学智教授谈从脾胃治糖料病</div>
+        <div class="char">北大医院中医科</div>
+        <div class="char">主任医师</div>
+        <div id="photo">
+            <div></div>
+            <div>张学智</div>
+        </div>
     </div>
 </body>
+
 </html>

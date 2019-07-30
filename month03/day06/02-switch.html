@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- <script>
+        var num = document.getElementById("num");
+        var tip = document.getElementById("tip");
+        num.onchange = function(){
+            tip.innerText = num.value;
+            console.log(num.value);
+        }
+        
+    </script> -->
+    <script>
+        function change(){
+            var num = document.getElementById("num");
+            var tip = document.getElementById("tip");
+            tip.innerText = num.value;
+        }
+    </script>
+</head>
+<body>
+    <div id="sw">
+        <input id = "num" type="range" min="1" max="10" value="1" step="1" onclick="change()">
+        <div id = "tip"></div>
+    </div>
+</body>
+</html>

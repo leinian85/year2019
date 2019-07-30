@@ -1,68 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>导航</title>
+    <title>Document</title>
     <style>
-        * {
-            padding: 0;
-            margin: 0;
-        }
-
-        /* div {
-            border: solid 1px red;
-        } */
-
-        #head {
-            height: 43px;
-            width: 410px;
+        #buy{
+            height: 36px;
+            width: 148px;
+            border:solid 1px #cccccc;
+            background-color: #eeeeee;
             margin: 0 auto;
-            line-height: 43px;
-            background-color: cyan;
+            position: relative;
         }
-
-        .navigat {
-            height: 30px;
-            width: 50px;
+        .txt{
             float: left;
+        }
+        #buy>div:nth-child(1){
+            height: 100%;
+            width: 100%;
             text-align: center;
-            line-height: 30px;
-            margin: 7px 15px;
+            line-height: 36px;
         }
-
-        #head>div:nth-child(2):hover {
+        #buy>div:nth-child(2){
+            height:16px;
+            width: 16px;
             background-color: red;
-            color: aliceblue;
+            position:absolute;
+            top:-5px;
+            left:116px;
+            border-radius: 8px 8px 8px 0;
+            color: #eeeeee;
+            text-align: center;
         }
-
-        #head>div:nth-child(3):hover {
-            background-color: red;
-            color: aliceblue;
+        #buy>div:nth-child(3){
+            height:10px;
+            width: 10px;
+            position:absolute;
+            top:10px;
+            left:130px;
         }
-
-        #head>div:nth-child(4):hover {
-            background-color: red;
-            color: aliceblue;
-        }
-
-        #head>div:nth-child(5):hover {
-            background-color: red;
-            color: aliceblue;
-        }
+        
     </style>
 </head>
-
 <body>
-    <div id="head">
-        <div class="navigat" hover="background-color:seashell">难度:</div>
-        <div class="navigat">全部</div>
-        <div class="navigat">初级</div>
-        <div class="navigat">中级</div>
-        <div class="navigat">高级</div>
+    <div id="buy">
+        <div class="txt">我的购物车</div>
+        <div class="txt">1</div>
+        <div class="txt">&gt;</div>
     </div>
 </body>
-
 </html>

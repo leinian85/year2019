@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #head{
+            height:405px;
+            width:520px;
+            margin: 0 auto;
+            background-color: darkgrey;
+            position:relative;
+            text-align: center;
+        }
+        #photo{
+            height:140px;
+            width:140px;
+            border: solid 6px #ffffff;
+            border-radius: 77px 77px;
+            position:absolute;
+            left: 181px;
+            top:25px;
+            background-image: url(../img/jt.png);
+            background-size: 100% 100%;
+            
+        }
+        /* #head>div{
+            border: solid 1px red;
+        } */
+        #text{
+            width: 100%;
+            position:absolute;
+            top:184px;
+        }
+        .txt{
+            height: 33px;
+        }
+        #text>div:nth-child(1){
+            font-size: 20px;
+        }
+        #text>div{
+            margin:0 5px 5px 0;
+        }
+        .btns{
+            padding-top: 8px;
+        }
+        .btns>input{
+            width:135px;
+            height: 36px;
+            border:none;
+            outline: none;
+            color: #ffffff;
+            border-radius: 5px;
+        }
+        .btns>input:nth-child(1){
+            background-color:#2EA7E0;  
+        }
+        .btns>input:nth-child(2){
+            background-color:#03B81d;  
+        }
+        .btns>input:nth-child(3){
+            background-color:#cc0003;  
+        }
+    </style>
+</head>
+<body>
+    <div id="head">
+        <div id = "photo"></div>
+        <div id="text">
+            <div class="txt">budinger</div>
+            <div class="txt">Web前段工程师</div>
+            <div class="txt">女,北京市</div>
+            <div class="txt">懒人一个,什么都没有写</div>
+            <div class="btns">
+                <input type="button" value="访问主页">
+                <input type="button" value="发消息">
+                <input type="button" value="删除好友">
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

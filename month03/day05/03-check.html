@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #check>.class {
+            padding: 5px;
+        }
+
+        #check>.btn {
+            margin: 8px 0;
+        }
+    </style>
+    
+</head>
+
+<body>
+    <div id="check">
+        <h3>输入文字的验证</h3>
+        <input id="text" type="text" class="text" placeholder="请输入字符串" id="">
+        <div id="result"></div>
+        <div id="btn" class="btn">
+            <button onclick="sbtn()">验证</button>
+        </div>
+        <script>
+            function sbtn() {
+                text = document.getElementById("text")
+                resultTxt = isNaN(Number(text.value)) ? "不是数值" : "是数值";
+                result = document.getElementById("result")
+                result.innerText = resultTxt
+            }
+        </script>
+    </div>
+    
+
+</body>
+
+</html>

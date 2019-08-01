@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            border: solid 1px #cccccc;
+            margin: 0 auto;
+            line-height: 30px;
+        }
+
+        #box {
+            width: 260px;
+            height: 237px;
+        }
+
+        #box>div {
+            height: 32px;
+            font-size: 20px;
+        }
+        #box>div>span{
+            padding:0px 0px 0px 8px;
+        }
+        .check {
+            margin: -1px 0px 1px 0px;
+            width: 31px;
+            height: 32px;
+            border-right: solid 1px #cccccc;
+            float: left;
+            padding:0px 0px 0px 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <div>
+            <div class="check"><input type="checkbox" name="language" id = "all"></div>
+            <span>编程语言</span>
+        </div>
+        <div>
+            <div class="check"><input type="checkbox" class="checkbox" name="language"></div>
+            <span>Python</span>
+        </div>
+
+        <div>
+            <div class="check"><input type="checkbox" class="checkbox" name="language"></div>
+            <span>C</span>
+        </div>
+        <div>
+            <div class="check"><input type="checkbox" class="checkbox" name="language"></div>
+            <span>JAVA</span>
+        </div>
+        <div>
+            <div class="check"><input type="checkbox" class="checkbox" name="language"></div>
+            <span>PHP</span>
+        </div>
+        <div>
+            <div class="check"><input type="checkbox" class="checkbox" name="language"></div>
+            <span>JavaScript</span>
+        </div>
+        <div>
+            <div class="check"><input type="checkbox" class="checkbox" name="language"></div>
+            <span>C++</span>
+        </div>
+    </div>
+    <script>
+        var all = document.getElementById("all");
+        var inp = document.getElementsByClassName("checkbox");
+        
+        function select_all(){
+            for(i = 0;i<inp.length;i++){
+                inp[i].checked=all.checked;
+            } 
+        };
+        all.onclick = select_all;
+    </script>
+</body>
+
+</html>

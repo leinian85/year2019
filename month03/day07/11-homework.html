@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box {
+            padding: 10px;
+            font-size: 25px;
+        }
+
+        .focusblack {
+            color: black;
+            text-decoration:none;
+            cursor: pointer;
+            /*去除下划线*/
+        }
+        .focusred {
+            color: red;
+            text-decoration:underline;
+            cursor: pointer;
+        }
+        span:hover{
+            color: black;
+            text-decoration:none;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="box">
+        <div>
+            <span class="focusred">大</span>
+            <span class="focusred">中</span>
+            <span class="focusblack">小</span>
+        </div>
+        <div>
+            属性和方法
+            属性 : length 表示数组长度,可读可写
+            方法 :
+            push(data) 在数组的末尾添加一个或多个元素,多个元素之间使用逗号隔开 返回添加之后的数组长度
+
+            pop() 移除末尾元素 返回被移除的元素
+
+            unshift(data) 在数组的头部添加一个或多个元素 返回添加之后的数组长度
+
+            shift() 移除数组的第一个元素 返回被移除的元素
+
+            toString() 将数组转换成字符串类型 返回字符串结果
+
+            join(param) 将数组转换成字符串,可以指定元素之间的连接符,如果参数省略,默认按照逗号连接 返回字符串
+
+            reverse() 反转数组,倒序重排 返回重排的数组,注意该方法直接修改原数组的结构
+
+            sort() 对数组中元素排序,默认按照Unicode编码升序排列 返回重排后的数组,直接修改原有数组 参数 : 可选,自定义排序算法 例：
+
+
+        </div>
+    </div>
+    <script>
+        var span = document.getElementsByTagName("span");
+        span[0].onclick = max;
+        span[1].onclick = mid;
+        span[2].onclick = min;
+
+        function max() {
+            span[0].className = "focusblack"
+            span[1].className = "focusred";
+            span[2].className = "focusred";
+            box = document.getElementById("box");
+            box.style.fontSize = "40px";
+        };
+
+        function mid() {
+            span[0].className = "focusred";
+            span[1].className = "focusblack";
+            span[2].className = "focusred";
+            box = document.getElementById("box");
+            box.style.fontSize = "30px";
+        };
+
+        function min() {
+            span[0].className = "focusred"
+            span[1].className = "focusred";
+            span[2].className = "focusblack";
+            box = document.getElementById("box");
+            box.style.fontSize = "20px";
+        };
+    </script>
+
+    <a href="Javascript:;">不跳转</a>
+</body>
+
+</html>

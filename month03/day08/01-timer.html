@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        function $$(id){
+            return document.getElementById(id);
+        };
+    </script>
+    <style>
+        #box{
+            width: 166px;
+            height: 40px;
+            margin: 0 auto;
+            border: solid 1px #cccccc;
+            font-size: 35px;
+            text-align: center;
+            line-height: 40px;
+        }
+        span{
+            width: 20px;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" onclick="" id="btn" value="关闭定时器">
+    <script>
+        function show(){
+            console.log("OK");
+        };
+        // setInterval调用的时候函数只写名字,不能加括号
+        var taskId = setInterval(show, 1000);
+
+        function close(){
+            clearInterval(taskId); // 停止计时器对象
+        };
+        // 绑定按钮功能的时候也只写函数名,不加括号
+        $$("btn").onclick = close;
+    </script>
+
+
+    <div id = "box">
+        <span id="hour">00</span>
+        <span>:</span>
+        <span id = "mi">00</span>
+        <span>:</span>
+        <span id = "sec">00</span>
+    </div>
+    <script>
+        function format(num){
+            if(num<10){
+                return "0"+num;
+            }else{
+                return num;
+            }
+        }
+        function showTime(){
+            var td = new Date();
+            $$("hour").innerText = format(td.getHours());
+            $$("mi").innerText = format(td.getMinutes());
+            $$("sec").innerText = format(td.getSeconds());
+        }
+        var timer = setInterval(showTime,1000);
+    </script>
+</body>
+</html>

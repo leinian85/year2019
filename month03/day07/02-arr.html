@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #table{
+            width: 300px;
+        }
+        ul{
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            border: solid 1px #cccccc;
+        }
+        ul>li{
+            padding: 5px 10px;
+        }
+        span{
+            display:inline-block;  /*内联元素转成块元素  */ 
+            width: 118px;
+        }
+        ul>li:nth-child(1){
+            font-weight: 700;
+            background-color: #eeeeee;
+            border: 0;
+        }
+        ul>li{
+            border-bottom: dashed 1px #cccccc;
+            text-align: center;
+        }
+        #table>div{
+            text-align: center;
+            border: solid 0px #cccccc;
+            padding: 5px 10px;
+        }
+        input{
+            width: 111px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="table">
+        <ul id="info"></ul>
+        <div>
+            <span>姓名:</span>
+            <input type="text" id="name">
+        </div>
+        <div>
+            <span>年龄:</span>
+            <input type="text" id="age">
+        </div>
+        <div>
+            <input id = "ad" type="button" value="添加">
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+
+</html>

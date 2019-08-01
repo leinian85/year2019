@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            border: solid 0px #cccccc;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        #box {
+            height: 218px;
+            width: 413px;
+        }
+
+        span {
+            height: 30px;
+            width: 103px;
+            float: left;
+            display: inline-block;
+            line-height: 30px;
+            text-align: center;
+            background-color: #cccccc;
+            border: 0;
+        }
+
+        span:hover {
+            background-color: red;
+            color: #ffffff;
+            cursor: pointer;
+        }
+
+        .top {
+            height: 30px;
+            width: 100%px;
+        }
+
+        .info {
+            float: left;
+            border: solid 0px #cccccc;
+            height: 185px;
+            width: 410px
+        }
+
+        .botton {
+            height: 184px;
+            line-height: 46px;
+            float: left;
+        }
+
+        .info>div>div {
+            height: 46px;
+            width: 396px;
+            margin: 0 8px 0 8px;
+            border-bottom: dashed 1px #cccccc;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <div class="top">
+            <span>热点新闻</span>
+            <span>合作播报</span>
+            <span>行业资讯</span>
+            <span>运营攻略</span>
+        </div>
+        <div class="info">
+            <div class="botton">
+                <div>[热点新闻] 加盟网络棋牌游戏注意的事项 2019-11-12</div>
+                <div>[热点新闻] 加盟网络棋牌游戏注意的事项 2019-11-12</div>
+                <div>[热点新闻] 加盟网络棋牌游戏注意的事项 2019-11-12</div>
+                <div>[热点新闻] 加盟网络棋牌游戏注意的事项 2019-11-12</div>
+            </div>
+            <div class="botton">
+                <div>[合作播报] 加盟网络棋牌游戏注意的事项 2019-11-12</div>
+                <div>[合作播报] 加盟网络棋牌游戏注意的事项 2019-11-12</div>
+                <div>[合作播报] 加盟网络棋牌游戏注意的事项 2019-11-12</div>
+                <div>[合作播报] 加盟网络棋牌游戏注意的事项 2019-11-12</div>
+            </div>
+            <div class="botton">
+                <div>[行业资讯] 加盟网络棋牌游戏注意的事项 2019-11-12</div>
+                <div>[行业资讯] 加盟网络棋牌游戏注意的事项 2019-11-12</div>
+                <div>[行业资讯] 加盟网络棋牌游戏注意的事项 2019-11-12</div>
+                <div>[行业资讯] 加盟网络棋牌游戏注意的事项 2019-11-12</div>
+            </div>
+            <div class="botton">
+                <div>[运营攻略] 加盟网络棋牌游戏注意的事项 2019-11-12</div>
+                <div>[运营攻略] 加盟网络棋牌游戏注意的事项 2019-11-12</div>
+                <div>[运营攻略] 加盟网络棋牌游戏注意的事项 2019-11-12</div>
+                <div>[运营攻略] 加盟网络棋牌游戏注意的事项 2019-11-12</div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var botton0 = document.getElementsByClassName("botton")[0];
+        var botton1 = document.getElementsByClassName("botton")[1];
+        var botton2 = document.getElementsByClassName("botton")[2];
+        var botton3 = document.getElementsByClassName("botton")[3];
+        botton0.style.display = "none";
+        botton1.style.display = "none";
+        botton2.style.display = "none";
+        botton3.style.display = "block";
+
+        function btn0(){
+            botton0.style.display = "block";
+            botton1.style.display = "none";
+            botton2.style.display = "none";
+            botton3.style.display = "none";
+        }
+        function btn1(){
+            botton0.style.display = "none";
+            botton1.style.display = "block";
+            botton2.style.display = "none";
+            botton3.style.display = "none";
+        }
+        function btn2(){
+            botton0.style.display = "none";
+            botton1.style.display = "none";
+            botton2.style.display = "block";
+            botton3.style.display = "none";
+        }
+        function btn3(){
+            botton0.style.display = "none";
+            botton1.style.display = "none";
+            botton2.style.display = "none";
+            botton3.style.display = "block";
+        }
+
+        var _span = document.getElementsByTagName("span");
+        _span[0].onmouseover = btn0;
+        _span[1].onmouseover = btn1;
+        _span[2].onmouseover = btn2;
+        _span[3].onmouseover = btn3;
+    </script>
+</body>
+
+</html>

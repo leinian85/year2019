@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*正则表达式 begin*/
+        var str = "eqdAdwe";
+        var reg = /m/ig; /*i 不区分大小写 g 全局 ,要查找的内容写在 // 里面*/
+        result = reg.test(str); /* 在 str 中查找 m */
+        console.log(result); /* js中的正则表达式返回 true 和 false */
+
+        var reg2 = new RegExp("a", "ig");
+        result2 = reg2.test(str);
+        console.log(result2);
+
+        console.log(reg2.lastIndex); /* 下次查找的索引开始的位置 ,可以设置为0 */
+
+        /* 下面的例子中返回结果为 false 因为是从第4个位置开始查找 begin*/
+        str2 = "haihbfe";
+        result2 = reg2.test(str2);
+        console.log(result2);
+        console.log(reg2.lastIndex);
+        /*end*/
+
+        /* match */
+        str3 = "aacbefag";
+        var reg3 = /a/ig;
+        var arr = str3.match(reg3);
+        console.log(arr.toString());
+
+        /* replace 替换 */
+        str4 = str3.replace(reg3, "i");
+        console.log(str3);
+        console.log(str4);
+        /*正则表达式 end*/
+
+        /* Math 数学函数模块 */
+        num = 3.56;
+        num1 = Math.ceil(num); // 向上取整,忽略小数位,整数位+1
+        num2 = Math.floor(num); // 向下取整,舍弃小数位,保留整数位
+        num3 = Math.round(num); // 四舍五入取整数
+        console.log(num1 + " / " + num2 + " / " + num3);
+
+        num4 = Math.random(); // 生成0-1之间的随机数
+        num5 = floor(Math.random()*10); // 生成0-10 之间的随机整数
+
+    </script>
+</body>
+
+</html>

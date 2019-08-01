@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .focus{
+            color: #ffffff;
+            background-color: red;
+        }
+        span:hover{
+            color: #ffffff;
+            background-color: red;
+            border: solid 1px rgb(146, 146, 146);
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <span>首页</span>
+        <span>新闻</span>
+        <span>图片</span>
+        <span>热点</span>
+    </div>
+    <script>
+        var _span = document.getElementsByTagName("span");
+        _span[0].setAttribute("title","这是一个首页");
+        _span[1].setAttribute("title","这是一个新闻");
+        _span[2].setAttribute("title","这是一个图片");
+        _span[3].setAttribute("title","这是一个热点");
+    </script>
+</body>
+</html>

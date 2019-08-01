@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            border: solid 0px red;
+        }
+
+        #box {
+            height: 439px;
+            width: 739px;
+            margin: 0 auto;
+            position: relative;
+
+        }
+
+        .img {
+            height: 439px;
+            width: 739px;
+            background-image: url(../img/gm1.jpg);
+        }
+
+        #box>div {
+            float: left;
+        }
+
+        .left,
+        .right:hover {
+            cursor: pointer;
+        }
+
+        .left {
+            width: 23px;
+            height: 40px;
+            position: absolute;
+            top: 197px;
+            left: 0px;
+            background-image: url(../img/l1.png);
+            border-radius: 0px 5px 5px 0px;
+        }
+
+        .right {
+            width: 23px;
+            height: 40px;
+            position: absolute;
+            top: 197px;
+            right: 0px;
+            background-image: url(../img/r1.png);
+            border-radius: 5px 0px 0px 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <div class="img"></div>
+        <div class="left"></div>
+        <div class="right"></div>
+    </div>
+    <script>
+        n = 0;
+        var arrImg = ["../img/gm1.jpg", "../img/gm2.jpg", "../img/gm3.jpg", "../img/gm4.jpg", "../img/gm5.jpg"]
+
+        function show_right() {
+            n = n == arrImg.length - 1 ? 0 : n + 1
+            url = arrImg[n];
+
+            var img = document.getElementsByClassName("img")[0];
+            img.style.backgroundImage="url("+url+")"
+
+        }
+
+        function show_left() {
+            n = n == 0 ? arrImg.length - 1 : n - 1
+            url = arrImg[n];
+
+            var img = document.getElementsByClassName("img")[0];
+            img.style.backgroundImage="url("+url+")"
+        }
+
+        left = document.getElementsByClassName("left")[0];
+        right = document.getElementsByClassName("right")[0];
+        left.onclick = show_left;
+        right.onclick = show_right;
+    </script>
+</body>
+
+</html>

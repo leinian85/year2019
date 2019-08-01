@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="tip"></div>
+    <input type="text" id="text">
+    <script>
+        var tip = document.getElementById("tip");
+        var text = document.getElementById("text");
+        text.oninput = function () {
+            tip.innerText = text.value.toUpperCase();
+        }
+
+        var str = "name=zhangsan&age=11&wd=aaaa"
+
+        var list_str = str.split("&");
+
+        for (i = 0; i < list_str.length; i++) {
+            _name = list_str[i].split("=");
+            if (_name[0] == "name") {
+                console.log(_name[1]);
+            }
+        }
+
+        console.log(str.indexof("2123"))
+    </script>
+</body>
+
+</html>

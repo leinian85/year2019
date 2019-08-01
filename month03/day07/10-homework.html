@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- <script src="index.js"></script> -->
+    <style>
+        #head{
+            height: 300px;
+            width: 450px;
+            margin: 0 auto;
+        }
+        span{
+            color:red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="head">
+        <div>
+            <input type="text" id="key_value">
+            <input type="button" onclick="change()" value="确定" id="btn">
+        </div>
+        <div id="text">作用 : 借助正则表达式实现字符串中作用 : 
+            借助正则表达式实现字符串中作用 : 
+            借助正则表达式实现字符串中作用 : 
+            借助正则表达式实现字符串中作用 : 
+            借助正则表达式实现字符串中</div>
+    </div>
+    <script>
+        function $$(id){
+            return document.getElementById(id);
+        };
+
+        function change() {
+            var key = $$("key_value").value;
+            var str = $$("text");
+
+            var reg = new RegExp(key,"ig");
+            str1 = str.innerText.replace(reg,"<span>" + key + "</span>")
+            
+            str.innerHTML = str1;
+        };
+
+
+    </script>
+</body>
+
+</html>

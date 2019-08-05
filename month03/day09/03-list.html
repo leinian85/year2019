@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        ul {
+            list-style-type: none;
+            /*除掉默认的样式*/
+            padding: 0;
+            margin: 0;
+            width: 100px;
+            margin: 0 auto;
+        }
+
+        ul>li {
+            border-bottom: dashed 1px #cccccc;
+            padding: 0;
+        }
+    </style>
+    <script src="js/jquery.min.js"></script>
+
+</head>
+
+<body>
+    <ul>
+        <li>张三</li>
+        <li>李四</li>
+        <li>王五</li>
+        <li>赵六</li>
+        <li>牛七</li>
+    </ul>
+    <button>隐藏</button>
+    <script>
+        // $("li:eq(2)").css("font-size","20px");
+        //改变第一个和最后一个的字体大小
+        // $("li:eq(0),li:eq(-1)").css("font-size","50px");
+        // $("li:first,li:last").css("font-size","50px");
+
+        $("li:odd").css("background-color", "red");
+        $("li:even").css("background-color", "blue");
+        $("button").on("click", function () {
+            // if ($("button").text() == "隐藏") {
+            //     $("ul").hide(1000, function () {
+            //         $("button").text("显示");
+            //     });
+            // } else {
+            //     $("ul").show(1000, function () {
+            //         $("button").text("隐藏");
+            //     });
+            // }
+
+            // 卷帘效果
+            if ($("button").text() == "隐藏") {
+                $("ul").slideUp(1000, function () {
+                    $("button").text("显示");
+                });
+            } else {
+                $("ul").slideDown(1000, function () {
+                    $("button").text("隐藏");
+                });
+            }
+        })
+    </script>
+
+    
+
+</body>
+
+</html>

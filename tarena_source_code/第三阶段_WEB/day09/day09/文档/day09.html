@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>day09.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback";
+	font-size: 14px;
+	padding: 0 12px;
+	line-height: 22px;
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	color: #4080D0;
+	text-decoration: none;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+h1 code,
+h2 code,
+h3 code,
+h4 code,
+h5 code,
+h6 code {
+	font-size: inherit;
+	line-height: auto;
+}
+
+a:hover {
+	color: #4080D0;
+	text-decoration: underline;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left: 5px solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 14px;
+	line-height: 19px;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+.mac code {
+	font-size: 12px;
+	line-height: 18px;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+/** Theming */
+
+.vscode-light,
+.vscode-light pre code {
+	color: rgb(30, 30, 30);
+}
+
+.vscode-dark,
+.vscode-dark pre code {
+	color: #DDD;
+}
+
+.vscode-high-contrast,
+.vscode-high-contrast pre code {
+	color: white;
+}
+
+.vscode-light code {
+	color: #A31515;
+}
+
+.vscode-dark code {
+	color: #D7BA7D;
+}
+
+.vscode-light pre:not(.hljs),
+.vscode-light code > div {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre:not(.hljs),
+.vscode-dark code > div {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre:not(.hljs),
+.vscode-high-contrast code > div {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+.vscode-light blockquote,
+.vscode-dark blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.vscode-high-contrast blockquote {
+	background: transparent;
+	border-color: #fff;
+}
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family:  "Meiryo", "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback";
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+</head>
+<body>
+<p>[TOC]</p>
+<h1 id="%E4%B8%80%E3%80%81jquery%E7%AE%80%E4%BB%8B">一、jQuery简介</h1>
+<h2 id="1-%E4%BB%8B%E7%BB%8D">1. 介绍</h2>
+<p>jQuery是JS的工具库，对原生JS中的DOM操作、事件处理、包括数据处理和Ajax技术等进行封装,提供更完善,更便捷的方法。</p>
+<h2 id="2-%E4%BD%BF%E7%94%A8">2. 使用</h2>
+<h4 id="1%EF%BC%89%E5%BC%95%E5%85%A5">1）引入</h4>
+<p>先引入jquery文件，才能使用jquery语法</p>
+<h4 id="2%EF%BC%89%E5%B7%A5%E5%8E%82%E5%87%BD%E6%95%B0">2）工厂函数 - $()</h4>
+<p>&quot;$()&quot;函数用于获取元素节点，创建元素节点或将原生JS对象转换为jquery对象,返回 jQuery 对象。jQuery 对象实际是一个类数组对象，包含了一系列 jQuery 操作的方法。
+例 :</p>
+<pre class="hljs"><code><div> <span class="hljs-comment">//$()获取元素节点,需传入字符串的选择器</span>
+ $(<span class="hljs-string">"h1"</span>)
+ $(<span class="hljs-string">"#d1"</span>)
+ $(<span class="hljs-string">".c1"</span>)
+ $(<span class="hljs-string">"body,h1,p"</span>)
+</div></code></pre>
+<h4 id="3%EF%BC%89%E5%8E%9F%E7%94%9Fjs%E5%AF%B9%E8%B1%A1%E4%B8%8Ejquery%E5%AF%B9%E8%B1%A1">3）原生JS对象与jQuery对象</h4>
+<p>原生JS对象与jQuery对象的属性和方法不能混用。可以根据需要，互相转换 :</p>
+<ol>
+<li>原生JS转换jQuery对象
+$(原生对象)，返回 jQuery 对象</li>
+<li>jQuery对象转换原生JS对象
+<ul>
+<li>方法一 : 根据下标取元素,取出即为原生对象
+var div = $(&quot;div&quot;)[0];</li>
+<li>方法二 : 使用jQuery的get(index)取原生对象
+var div2 = $(&quot;div&quot;).get(0);</li>
+</ul>
+</li>
+</ol>
+<h4 id="4%EF%BC%89jquery%E8%8E%B7%E5%8F%96%E5%85%83%E7%B4%A0">4）jQuery获取元素</h4>
+<p>jQuery通过选择器获取元素，$(&quot;选择器&quot;)
+选择器分类 :</p>
+<ol>
+<li>基础选择器</li>
+</ol>
+<pre class="hljs"><code><div>标签选择器：$(&quot;div&quot;)
+ID 选择器：$(&quot;#d1&quot;)
+类选择器：$(&quot;.c1&quot;)
+群组选择器：$(&quot;body,p,h1&quot;)
+</div></code></pre>
+<ol start="2">
+<li>层级选择器</li>
+</ol>
+<pre class="hljs"><code><div>后代选择器： $(&quot;div .c1&quot;)
+子代选择器： $(&quot;div&gt;span&quot;)
+相邻兄弟选择器： $(&quot;h1+p&quot;)  匹配选择器1后的第一个兄弟元素,同时要求兄弟元素满足选择器2
+通用兄弟选择器： $(&quot;h1~h2&quot;) 匹配选择器1后所有满足选择器2的兄弟元素
+</div></code></pre>
+<ol start="3">
+<li>过滤选择器
+需要结合其他选择器使用。</li>
+</ol>
+<pre class="hljs"><code><div>:first
+  匹配第一个元素 例:$(&quot;p:first&quot;)
+:last
+  匹配最后一个元素 例:$(&quot;p:last&quot;)
+:odd
+  匹配奇数下标对应的元素
+:even
+  匹配偶数下标对应的元素
+:eq(index)
+  匹配指定下标的元素
+:lt(index)
+  匹配下标小于index的元素
+:gt(index)
+  匹配下标大于index的元素
+:not(选择器)
+  否定筛选,除()中选择器外,其他元素
+</div></code></pre>
+<ol start="4">
+<li>属性选择器
+属性选择器以[ ]为标志.</li>
+</ol>
+<pre class="hljs"><code><div>1. [attrName]
+  匹配包含指定属性的元素
+2. [attrName=value]/[attrName=&quot;value&quot;]
+  匹配属性名=属性值的元素
+3. [attrName^=value]
+  匹配属性值以指定字符开头的元素
+4. [attrName$=value]
+  匹配属性值以指定字符结尾的元素
+5. [attrName*=value]
+  匹配属性值包含指定字符的元素
+</div></code></pre>
+<ol start="5">
+<li>子元素过滤选择器</li>
+</ol>
+<pre class="hljs"><code><div>:first-child
+   匹配第一个子元素
+:last-child
+   匹配最后一个子元素
+:nth-child(n)
+   匹配第n个子元素(n从1开始计数)
+</div></code></pre>
+<h4 id="5%EF%BC%89%E6%93%8D%E4%BD%9C%E5%85%83%E7%B4%A0%E5%86%85%E5%AE%B9">5）操作元素内容</h4>
+<pre class="hljs"><code><div>html() <span class="hljs-comment">//设置或读取标签内容,等价于原生innerHTML,可识别标签语法</span>
+text() <span class="hljs-comment">//设置或读取标签内容,等价于innerText,不能识别标签</span>
+val()  <span class="hljs-comment">//设置或读取表单元素的值,等价于原生value属性</span>
+</div></code></pre>
+<h4 id="6%EF%BC%89%E6%93%8D%E4%BD%9C%E6%A0%87%E7%AD%BE%E5%B1%9E%E6%80%A7">6）操作标签属性</h4>
+<ol>
+<li>attr(&quot;attrName&quot;,&quot;value&quot;)
+设置或读取标签属性</li>
+<li>prop(&quot;attrName&quot;,&quot;value&quot;)
+设置或读取标签属性
+注意 :在设置或读取元素属性时,attr()和prop()基本没有区别;但是在读取或设置表单元素(按钮)的选中状态时,必须用prop()方法,attr()不会监听按钮选中状态的改变,只看标签属性checked是否书写</li>
+<li>removeAttr(&quot;attrName&quot;)
+移除指定属性</li>
+</ol>
+<h4 id="7%EF%BC%89%E6%93%8D%E4%BD%9C%E6%A0%87%E7%AD%BE%E6%A0%B7%E5%BC%8F">7）操作标签样式</h4>
+<ol>
+<li>为元素添加id/class属性,对应选择器样式</li>
+<li>针对类选择器,提供操作class属性值的方法</li>
+</ol>
+<pre class="hljs"><code><div>addClass(<span class="hljs-string">"className"</span>)	<span class="hljs-comment">//添加指定的类名</span>
+removeClass(<span class="hljs-string">"className"</span>)<span class="hljs-comment">//移除指定的类型,如果参数省略,表示清空class属性值</span>
+toggleClass(<span class="hljs-string">"className"</span>)<span class="hljs-comment">//结合用户行为,实现动态切换类名.如果当前元素存在指定类名,则移除;不存在则添加</span>
+</div></code></pre>
+<ol start="3">
+<li>操作行内样式</li>
+</ol>
+<pre class="hljs"><code><div>css(<span class="hljs-string">"属性名"</span>,<span class="hljs-string">"属性值"</span>)  <span class="hljs-comment">//设置行内样式</span>
+css(<span class="hljs-built_in">JSON</span>对象)			 <span class="hljs-comment">//设置一组CSS样式</span>
+<span class="hljs-comment">/*
+JSON对象:常用数据传输格式
+语法 :
+   {
+    "width":"200px",
+    "height":"200px",
+    "color":"red"
+   }
+ */</span>
+</div></code></pre>
+<h4 id="8%EF%BC%89%E6%A0%B9%E6%8D%AE%E5%B1%82%E7%BA%A7%E7%BB%93%E6%9E%84%E8%8E%B7%E5%8F%96%E5%85%83%E7%B4%A0">8）根据层级结构获取元素</h4>
+<ol>
+<li>parent()
+返回父元素</li>
+<li>parents('selector')
+返回满足选择器的祖先元素</li>
+<li>children()/children(&quot;selector&quot;)
+返回所有直接子元素/返回满足选择器的直接子元素</li>
+<li>find(&quot;selector&quot;)
+返回所有的后代元素(包含直接与间接)</li>
+<li>next()/next(&quot;selector&quot;)
+返回下一个兄弟元素/返回下一个兄弟元素,必须满足选择器</li>
+<li>prev()/prev(&quot;selector&quot;)
+返回前一个兄弟元素/返回前一个兄弟元素,要求满足选择器</li>
+<li>siblings()/siblings(&quot;selector&quot;)
+返回所有的兄弟元素/满足选择器的所有兄弟元素</li>
+</ol>
+<h4 id="9%EF%BC%89%E5%85%83%E7%B4%A0%E7%9A%84%E5%88%9B%E5%BB%BA%E6%B7%BB%E5%8A%A0%E5%88%A0%E9%99%A4">9）元素的创建,添加,删除</h4>
+<ol>
+<li>创建
+使用$(&quot;标签语法&quot;)，返回创建好的元素</li>
+</ol>
+<pre class="hljs"><code><div><span class="hljs-keyword">var</span> div = $(<span class="hljs-string">"&lt;div&gt;&lt;/div&gt;"</span>);	<span class="hljs-comment">//创建元素</span>
+div.html(<span class="hljs-string">"动态创建"</span>).attr(<span class="hljs-string">"id"</span>,<span class="hljs-string">"d1"</span>).css(<span class="hljs-string">"color"</span>,<span class="hljs-string">"red"</span>); <span class="hljs-comment">//链式调用，设置内容和属性</span>
+<span class="hljs-keyword">var</span> h1 = $(<span class="hljs-string">"&lt;h1 id='d1'&gt;一级标题&lt;/h1&gt;"</span>);	<span class="hljs-comment">//创建的同时设置内容，属性和样式</span>
+</div></code></pre>
+<ol start="2">
+<li>添加至页面
+1）作为子元素添加</li>
+</ol>
+<pre class="hljs"><code><div>$obj.append(newObj);	<span class="hljs-comment">//在$obj的末尾添加子元素newObj</span>
+$obj.prepend(newObj);	<span class="hljs-comment">//作为第一个子元素添加至$obj中</span>
+</div></code></pre>
+<p>2）作为兄弟元素添加</p>
+<pre class="hljs"><code><div>$obj.after(newObj);		<span class="hljs-comment">//在$obj的后面添加兄弟元素</span>
+$obj.before(newObj);	<span class="hljs-comment">//在$obj的前面添加兄弟元素</span>
+</div></code></pre>
+<p>3）移除元素</p>
+<pre class="hljs"><code><div>$obj.remove();	<span class="hljs-comment">//移除$obj</span>
+</div></code></pre>
+<h4 id="10%EF%BC%89jquery%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86">10）jQuery事件处理</h4>
+<ol>
+<li>文档加载完毕
+原生JS 方法：window.onload
+jQuery:</li>
+</ol>
+<pre class="hljs"><code><div><span class="hljs-comment">//语法一 </span>
+$(<span class="hljs-built_in">document</span>).ready(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>)</span>{
+  <span class="hljs-comment">//文档加载完毕后执行</span>
+})
+<span class="hljs-comment">//语法二 </span>
+$().ready(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>)</span>{
+  <span class="hljs-comment">//文档加载完毕后执行</span>
+})
+<span class="hljs-comment">//语法三 </span>
+$(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+  <span class="hljs-comment">//文档加载完毕后执行</span>
+})
+</div></code></pre>
+<p>区别：
+原生onload事件不能重复书写，会产生覆盖问题；jquery中对事件做了优化,可以重复书写ready方法,依次执行
+2. 事件绑定方式
+事件名称省略 on 前缀</p>
+<pre class="hljs"><code><div>  <span class="hljs-comment">//on("事件名称"，function)</span>
+  $(<span class="hljs-string">"div"</span>).on(<span class="hljs-string">"click"</span>,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{});
+  <span class="hljs-comment">//bind("事件名称",function)</span>
+  $(<span class="hljs-string">"div"</span>).bind(<span class="hljs-string">"click"</span>,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{});
+  <span class="hljs-comment">//事件名作为方法名</span>
+  $(<span class="hljs-string">"div"</span>).click(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{});  
+</div></code></pre>
+<ol start="3">
+<li>this表示事件的触发对象，在jquery中可以使用，注意转换类型。this为原生对象只能使用原生的属性和方法，可以使用$(this)转换为jquery对象，使用jquery方法。</li>
+</ol>
+
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/jquery.min.js"></script>
+    <style>
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            width: 808px;
+            height: 310px;
+            border: solid 1px #cccccc;
+            text-align: center;
+        }
+
+        ul>li {
+            float: left;
+            border: solid 0px red;
+            height: 310px;
+        }
+
+        #top {
+            height: 30px;
+            width: 808px;
+            border: solid 1px #cccccc;
+        }
+
+        #top>div:nth-child(1) {
+            float: left;
+            margin: 0 0 0 8px;
+        }
+
+        #top>div:nth-child(2) {
+            float: right;
+            margin: 0 8px 0 0;
+        }
+        .change{
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="top">
+        <div>相关书籍</div>
+        <div class="change">换一换</div>
+    </div>
+    <ul>
+        <li>
+            <img src="../img/bk0.jpg" alt="">
+            <h3><a href="javascript:;">第一本图书</a> </h3>
+            <p>属于第一类</p>
+        </li>
+        <li>
+            <img src="../img/bk0.jpg" alt="">
+            <h3><a href="javascript:;">第一本图书</a></h3>
+            <p>属于第一类</p>
+        </li>
+        <li>
+            <img src="../img/bk0.jpg" alt="">
+            <h3><a href="javascript:;">第一本图书</a></h3>
+            <p>属于第一类</p>
+        </li>
+        <li>
+            <img src="../img/bk0.jpg" alt="">
+            <h3><a href="javascript:;">第一本图书</a></h3>
+            <p>属于第一类</p>
+        </li>
+    </ul>
+    <script>
+        var arrbooks = [{
+                url: "../img/bk0.jpg",
+                name: "第一本图书",
+                cls: "属于第一类"
+            },
+            {
+                url: "../img/bk1.jpg",
+                name: "第二本图书",
+                cls: "属于第二类"
+            },
+            {
+                url: "../img/bk2.jpg",
+                name: "第三本图书",
+                cls: "属于第三类"
+            },
+            {
+                url: "../img/bk3.jpg",
+                name: "第四本图书",
+                cls: "属于第四类"
+            },
+            {
+                url: "../img/bk4.jpg",
+                name: "第五本图书",
+                cls: "属于第五类"
+            },
+            {
+                url: "../img/bk5.jpg",
+                name: "第六本图书",
+                cls: "属于第六类"
+            }
+
+        ];
+
+        $(".change").on("click", function () {
+            arr = []
+            for (i = 0; i < 4; i++) {
+                var tmp = Math.floor(Math.random() * (arrbooks.length));
+                // arr.find(tmp);
+                // console.log(arr.find(tmp));
+                arr.push(tmp);
+            }
+            console.log(arr);
+            for(i=0;i<arr.length;i++){
+                var child =  $("ul>li:nth-child("+(i+1)+")");
+                console.log(child);
+                var HTML =  '<img src='+arrbooks[arr[i]].url+'>';
+                    HTML += '<h3><a href="javascript:;">'+arrbooks[arr[i]].name+'</a></h3>';
+                    HTML += '<p>'+arrbooks[arr[i]].cls+'</p>';
+                child.html(HTML);
+            }
+        })
+    </script>
+
+    <span>
+        123456
+    </span>
+</body>
+
+</html>

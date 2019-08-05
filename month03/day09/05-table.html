@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        ul {
+            list-style-type: none;
+            border: solid 5px #4c4c4c;
+            width: 645px;
+            height: 203px;
+            margin: 0 auto;
+            padding: 0;
+            font-size: 25px;
+        }
+
+        ul>li {
+            margin: 0;
+            padding: 0;
+            border-bottom: solid 1px #cee2df;
+            height: 28px;
+        }
+
+        ul>li>span {
+            float: left;
+            margin:0;
+            width: 128px;
+            display: inline-block;
+            border-right: solid 1px #cee2df;
+        }
+
+        .bg{
+            background-color: #ffffff;
+            color: #000000;
+        }
+
+        .outbg {
+            background-color: #000000;
+            color: #ffffff;
+        }
+    </style>
+    <script src="js/jquery.min.js"></script>
+</head>
+
+<body>
+    <ul>
+        <li>
+            <span>Product</span>
+            <span>Price</span>
+            <span>ID code</span>
+            <span>Quality</span>
+            <span>Exp Date</span>
+        </li>
+        <li>
+                <span>Pro1</span>
+                <span>51$</span>
+                <span>4587</span>
+                <span>Good</span>
+                <span>02/01/2009</span>
+        </li>
+        <li>
+                <span>Pro1</span>
+                <span>51$</span>
+                <span>4587</span>
+                <span>Good</span>
+                <span>02/01/2009</span>
+        </li>
+        <li>
+                <span>Pro1</span>
+                <span>51$</span>
+                <span>4587</span>
+                <span>Good</span>
+                <span>02/01/2009</span>
+        </li>
+        <li>
+                <span>Pro1</span>
+                <span>51$</span>
+                <span>4587</span>
+                <span>Good</span>
+                <span>02/01/2009</span>
+        </li>
+        <li>
+                <span>Pro1</span>
+                <span>51$</span>
+                <span>4587</span>
+                <span>Good</span>
+                <span>02/01/2009</span>
+        </li>
+        <li>
+            <span>Pro1</span>
+            <span>51$</span>
+            <span>4587</span>
+            <span>Good</span>
+            <span>02/01/2009</span>
+        </li>
+    </ul>
+    <script>
+        var row = 0;
+        var col = 0;
+        // $("ul>li:not(li:first)").each(function(index,elem){
+        //     $(elem).on("mouseover",function(){
+        //         row = index;
+        //         $(elem).css({"background-color":"#000000","color":"#ffffff"});
+        //     }).on("mouseout",function(){
+        //         $(elem).css({"background-color":"#ffffff","color":"#000000"})
+        //     });
+        // })
+
+        $("ul>li:not(li:first)>span").each(function(index,elem){
+            $(elem).on("mouseover",function(){
+                col = index;
+                $("ul>li:not(li:first)>span").each(function(index2,elem2){
+                    if(index2%5 == col%5 || Math.floor(index2/5) == Math.floor(index/5)){
+                        $(elem2).css({"background-color":"#000000","color":"#ffffff"})
+                    }else{
+                    $(elem2).css({"background-color":"#ffffff","color":"#000000"})}
+                });
+                $(elem).css({"background-color":"red","color":"#ffffff"})
+            }).on("mouseleave",function(){
+                col = index;
+                $("ul>li:not(li:first)>span").each(function(index2,elem2){
+                    if(index2%5 != col%5 || Math.floor(index2/5) != Math.floor(index/5)){
+                        $(elem2).css({"background-color":"#ffffff","color":"#000000"})
+                    }else{
+                        $(elem2).css({"background-color":"#ffffff","color":"#000000"})
+                    }
+                });
+                $(elem).css({"background-color":"#ffffff","color":"#000000"})
+            }) 
+        })
+
+        // $("#last").on("mouseover", function () {
+        //     $("#last").css("background-color", "#ffffff")
+        // })
+    </script>
+
+
+
+    <!-- <div>abc</div>
+    <div>def</div>
+    <div>ghi</div>
+    <script>
+        // 使用each函数来遍历
+        // 写法:选择器.each(function(index,element))
+        // index 表示遍历的索引号
+        // element 表示原生元素
+        $("div").each(function (index, elem) {
+            console.log(index);
+            console.log($(elem));
+        })
+    </script> -->
+</body>
+
+</html>

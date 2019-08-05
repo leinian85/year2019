@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>login</title>
+    <script src="js/jquery.min.js"></script>
+    <style>
+        #err_name,#err_pwd{
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 1.action 表示提交到的服务器的路径 
+         2.表单的验证事件不在提交按钮上,数据由表单元素提交,按钮是为表单服务,使用验证在表单上
+         3.在submint事件中,如果返回值为 false 则不能提交,如果为 true ,则可以提交
+    -->
+    <form action="" method="get" onsubmit="return sub()">
+        <!-- 表单中的 name 是用于数据发送时获取数据使用的 -->
+        <!-- 表单中的 id 用于js或者css样式中定位元素使用的 -->
+        <div>
+            <input type="text" name="user_name" id="user_name">
+        </div>
+        <div id= "err_name"></div>
+        <div>
+            <input type="password" name="pwd" id="pwd">
+        </div>
+        <div id= "err_pwd"></div>
+        <!-- 用于提交文本框的数据的按钮 -->
+        <input type="submit" value="提交">
+    </form>
+    <script>
+        var userName = $("#user_name");
+        var pwd = $("#pwd");
+        var errName = $("#err_name");
+        var errPwd = $("#err_pwd");
+
+        function sub() {
+            
+            if (userName.val() == "") {
+                errName.text("用户名不能为空") ;
+                console.log(errName.val());
+                // 获取焦点
+                userName.focus();
+                // 返回false阻止提交
+                return false;
+            }
+            if (pwd.val() == "") {
+                errPwd.text("密码不能为空") ;
+                userName.focus();
+                return false;
+            }
+        }
+    </script>
+
+    <div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</body>
+
+</html>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #tip {
+            height: 100px;
+            width: 400px;
+            border: solid 1px #cccccc;
+            margin: 0 auto;
+            padding: 10px 0;
+            text-align: center;
+
+        }
+
+        .red {
+            background-color: red;
+        }
+    </style>
+    <script src="js/jquery.min.js"></script>
+</head>
+
+<body>
+    <div id="tip" class="red">
+        <div id = "one">今天是不怎么热</div> 
+    </div>
+    <script>
+        // $("#tip").prop("class","red");
+        // $("#tip").addClass("red").css("background-color","red");
+        $("#tip").on("click", function () {
+            $("#tip").toggleClass("red");
+        })
+        var $div = $("<div></div>"); //创建div对象
+        // 设置id,内容和样式
+        $div.attr("id", "child").html("我是一个动态元素").css("color", "red");
+        // 放入id为tip的元素中
+        // $("#tip").html($div);
+
+        $("#one").prepend($div);
+        $("#one").append($div);
+
+    </script>
+
+</body>
+
+</html>

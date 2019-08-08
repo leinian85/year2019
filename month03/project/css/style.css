@@ -12,10 +12,21 @@ ul {
 /* 清除超级链接的下划线 */
 a {
     text-decoration: none;
+    color: #e9f5ec;
 }
 
 .focus{
     color: #B8EAEE !important;
+}
+
+/* 全局广告图片样式 */
+.adimg{
+    margin-top:75px;
+    margin-bottom:20px;
+    width: 100%;
+}
+.adimg>img{
+    width: 100%;
 }
 
 /* 导航条的样式 */
@@ -73,11 +84,6 @@ body{
 #nav>.box>.a1>a{
     margin-right: 10px;
     color: #e9f5ec;
-}
-
-/* 登录页的样式 */
-#login{
-
 }
 
 #login>img{
@@ -149,3 +155,5 @@ body{
     background-color:#666;
     color:#ffffff;
 }
+
+/* 列表页的样式 */

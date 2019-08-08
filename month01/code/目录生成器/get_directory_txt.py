@@ -1,7 +1,6 @@
-import sys
 import os
 
-gitignore = ("__init__.py", "目录.md", "get_directory.py")
+gitignore = ("__init__.py", "目录.md", "get_directory_txt.py",".git",".idea",".gitignore")
 dict_file = {"py": "python文件", "MP3": "音频", "mp3": "音频"}
 
 

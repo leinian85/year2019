@@ -10,5 +10,12 @@
         <li>{{ forloop.counter }} {{ city }}</li>
         {% endfor %}
     </ul>
+
+    <div> s = {{ s | upper }} </div>
+    <div> s = {{ s | lower }} </div>
+    <div> l = {{ l | safe }} </div>
+    <div> s = {{ s | truncatechars:'7' }} </div>
+    <div> s = {{ s | add:' aaaa' }} </div>
+    <div> n = {{ n | add:10 }} </div>
 </body>
 </html>

@@ -89,5 +89,8 @@ def mycal(request):
 def test_for(request):
     if request.method == "GET":
         lst = ["北京","上海","广州","深圳"]
+        s = "hello word"
+        l = "<i>hello word</i>"
+        n = 100
         return render(request,"test_for.html",locals())
 

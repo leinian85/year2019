@@ -1,0 +1,42 @@
+{% extends "index.html" %}
+
+{% block page_info %}
+    <div id="list">
+        <div class="top">
+            <div class="tleft">
+                <h3>文章列表</h3>
+            </div>
+            <div class="tright">
+                <p></p>
+            </div>
+        </div>
+        <!-- 添加主体元素 -->
+        <div class="body">
+            <!-- 列表部分 -->
+            <div class="list">
+                
+
+            </div>
+            <!-- 广告推荐 -->
+            <div class="ad">
+                <div class="adtip">
+                    <h3>特别推荐</h3>
+                </div>
+                <div class="line">
+                </div>
+                <div class="imglst">
+                    <ul>
+                        <li>
+                            <img src="imgs/banner03.jpg" alt="">
+                        </li>
+                        <li>
+                            <img src="imgs/b04.jpg" alt="">
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 导入业务逻辑文件 -->
+    <script src="js/blog.js"></script>
+{% endblock %}

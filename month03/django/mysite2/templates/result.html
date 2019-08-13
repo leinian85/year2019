@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+{% for item in list %}
+<div>姓名1:{{item.name}}
+    密码1:{{item.pwd}}
+</div>
+{% empty %}
+<div>没有数据</div>
+{% endfor %}
+<body>
+
+</body>
+</html>

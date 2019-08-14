@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <link rel="stylesheet" href="{% load static %}">
+</head>
+<body>
+    <div id="top">导航</div>
+    {% block block_body %}
+    <div>正文</div>
+    {% endblock %}
+    <div id="buttom">尾部</div>
+</body>
+</html>

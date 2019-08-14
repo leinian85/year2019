@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/shebao" method='POST'>
+    <div>
+    <label for="id_base">请输入基数</label>
+        <input type="input" name="base" id="id_base">
+    </div>
+    <div>
+    <label>请输选择户口</label>
+    <select name="is_city">
+        <option value ="1">城镇户口</option>
+        <option value ="0">农村户口</option>
+    </select>
+    </div>
+    <input type="submit" value="开始计算">
+</form>
+
+{% if base is not null %}
+<table border="1" >
+        <tr>
+            <td>项目</td>
+            <td>个人缴费</td>
+            <td>单位缴费</td>
+        </tr>
+        <tr>
+            <td>养老保险：</td>
+            <td>{{ yl_g }}</td>
+            <td>{{ yl_dw }}</td>
+        </tr>
+        <tr>
+            <td>失业:</td>
+            <td>{{ sy_g }}</td>
+            <td>{{ sy_dw }}</td>
+        </tr>
+        <tr>
+            <td>工伤:</td>
+            <td>{{ gs_g }}</td>
+            <td>{{ gs_dw }}</td>
+        </tr>
+        <tr>
+            <td>生育:</td>
+            <td>{{ sybx_g }}</td>
+            <td>{{ sybx_dw }}</td>
+        </tr>
+        <tr>
+            <td>医疗:</td>
+            <td>{{ jbyl_g }}</td>
+            <td>{{ jbyl_dw }}</td>
+        </tr>
+        <tr>
+            <td>公积金:</td>
+            <td>{{ gjj_g }}</td>
+            <td>{{ gjj_dw }}</td>
+        </tr>
+        <tr>
+            <td>个人缴费总和:</td>
+            <td>{{ sum_g }}</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>单位缴费总和:</td>
+            <td>{{ sum_dw }}</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>纳入国家总和:</td>
+            <td>{{ sum }}</td>
+            <td></td>
+        </tr>
+    </table>
+{% endif %}
+</body>
+</html>

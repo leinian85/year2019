@@ -11,13 +11,9 @@
             <option value="1" {% if s_type == "1" %}selected{% endif %}>查询图书</option>
             <option value="2" {% if s_type == "2" %}selected{% endif %}>查询作者</option>
         </select>
-        <!--<select name="s_type">-->
-            <!--<option value="1">查询图书</option>-->
-            <!--<option value="2">查询作者</option>-->
-        <!--</select>-->
     </div>
     <div>
-        名称: <input type="text" name="name"">
+        名称: <input type="text" name="name">
     </div>
     <div>
         价格区间: <input type="text" name="minprice">到
@@ -28,8 +24,8 @@
     </div>
 </form>
 {% if msg is not null %}{{ msg }}{% endif %}
-{{ bookset }}
-{{ authorset }}
+<div>bookset:{{ bookset }}</div>
+<div>authorset:{{ authorset }}</div>
 {% if bookset is not null %}
 <table border="1" cellpadding="0"  cellspacing="0">
     <tr>

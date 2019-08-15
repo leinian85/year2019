@@ -1,4 +1,8 @@
 {% extends "index.html" %}
+{% block type_css_js %}
+    <link rel="stylesheet" href="/static/css/list.css">
+    <script src="/static/js/jquery.min.js"></script>
+{% endblock type_css_js%}
 
 {% block page_info %}
     <div id="list">
@@ -27,10 +31,10 @@
                 <div class="imglst">
                     <ul>
                         <li>
-                            <img src="imgs/banner03.jpg" alt="">
+                            <img src="/static/imgs/banner03.jpg" alt="">
                         </li>
                         <li>
-                            <img src="imgs/b04.jpg" alt="">
+                            <img src="/static/imgs/b04.jpg" alt="">
                         </li>
                     </ul>
                 </div>
@@ -38,5 +42,5 @@
         </div>
     </div>
     <!-- 导入业务逻辑文件 -->
-    <script src="js/blog.js"></script>
-{% endblock %}
+    <script src="/static/js/blog.js"></script>
+{% endblock page_info%}

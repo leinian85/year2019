@@ -1,0 +1,23 @@
+{% extends "bookstore/index.html" %}
+{% block title %}
+<title>添加作者</title>
+{% endblock title %}
+{% block index_body %}
+<form action="/bookstore/add_author" method="post">
+    <div>
+        姓名: <input type="text" name="name">
+    </div>
+    <div>
+        年龄: <input type="text" name="age">
+    </div>
+    <div>
+        email: <input type="text" name="email">
+    </div>
+    <div>
+        <input type="submit" value="新增">
+    </div>
+</form>
+{% if msg is not null %}
+{{ msg }}
+{% endif %}
+{% endblock index_body %}

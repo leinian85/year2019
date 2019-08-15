@@ -1,0 +1,9 @@
+{% extends "bookstore/insert.html" %}
+{% block go_to %}
+<form action="/bookstore/update_book" method="post">
+{% endblock go_to %}
+{% block edit %}
+<div>
+    <input type="submit" value="修改">
+</div>
+{% endblock %}

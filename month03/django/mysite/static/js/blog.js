@@ -80,31 +80,31 @@ var lst = {
 
 var _list = [{
         title: "Python语言在人工智能(AI)中的优势",
-        url: "imgs/toppic01.jpg",
+        url: "/static/imgs/toppic01.jpg",
         p1: "本文探讨了python语言在AI领域的优势与运用,谁谁成为AI和大数据时代的第一开发语言?这本已是一个不需要争论的问题,如果说三年前,Matlab、Acala、R、Java...",
         p2: "皮皮虾 学无止境 2018-5-13 34567已阅读 9999"
     },
     {
         title: "Python中打开TXT文件报错",
-        url: "imgs/toppic02.jpg",
+        url: "/static/imgs/toppic02.jpg",
         p1: "Python中打开TXT文件报错Python中打开TXT文件报错Python中打开TXT文件报错Python中打开TXT文件报错",
         p2: "齐天大圣 学无止境 2018-5-13 34567已阅读 9999"
     },
     {
         title: "Python语言在人工智能(AI)中的优势",
-        url: "imgs/toppic01.jpg",
+        url: "/static/imgs/toppic01.jpg",
         p1: "本文探讨了python语言在AI领域的优势与运用,谁谁成为AI和大数据时代的第一开发语言?这本已是一个不需要争论的问题,如果说三年前,Matlab、Acala、R、Java...",
         p2: "皮皮虾 学无止境 2018-5-13 34567已阅读 9999"
     },
     {
         title: "Python语言在人工智能(AI)中的优势",
-        url: "imgs/toppic01.jpg",
+        url: "/static/imgs/toppic01.jpg",
         p1: "本文探讨了python语言在AI领域的优势与运用,谁谁成为AI和大数据时代的第一开发语言?这本已是一个不需要争论的问题,如果说三年前,Matlab、Acala、R、Java...",
         p2: "皮皮虾 学无止境 2018-5-13 34567已阅读 9999"
     },
     {
         title: "Python语言在人工智能(AI)中的优势",
-        url: "imgs/toppic01.jpg",
+        url: "/static/imgs/toppic01.jpg",
         p1: "本文探讨了python语言在AI领域的优势与运用,谁谁成为AI和大数据时代的第一开发语言?这本已是一个不需要争论的问题,如果说三年前,Matlab、Acala、R、Java...",
         p2: "皮皮虾 学无止境 2018-5-13 34567已阅读 9999"
     }

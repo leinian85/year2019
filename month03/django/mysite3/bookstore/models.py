@@ -21,6 +21,10 @@ class Book(models.Model):
                                        default=0.0,
                                        verbose_name="市场价")
 
+    class Meta:
+        db_table = "book"
+        verbose_name = '书籍'
+        verbose_name_plural = '书籍表'
 
 class Author(models.Model):
     name = models.CharField(max_length=40,
@@ -32,3 +36,8 @@ class Author(models.Model):
     email = models.EmailField(max_length=100,
                               null=True,
                               verbose_name="邮箱")
+
+    class Meta:
+        db_table = "author"
+        verbose_name = '作者'
+        verbose_name_plural = '作者表'

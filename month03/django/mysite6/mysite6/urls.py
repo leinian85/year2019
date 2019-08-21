@@ -19,8 +19,13 @@ from django.contrib import admin
 from django.conf.urls import include
 from index.views import index_view
 
+from index.views import test_view
+from index.views import upload_view
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^user/', include('user.urls')),
     url(r'^$', index_view),
+    url(r'^note/', include('note.urls')),
+    url(r'^test', test_view),
+    url(r'^upload', upload_view),
 ]

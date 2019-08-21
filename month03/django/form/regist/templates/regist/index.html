@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/regist/index" method="post">
+        {% csrf_token %}
+        <div> 姓名: <input type="text" name="name" id="">{{ error.name.0 }}</div>
+        <div> 密码: <input type="password" name="pwd1" id=""></div>
+        <div> 密码(重复): <input type="password" name="pwd2" id=""></div>
+        <div> 年龄: <input type="text" name = "age">{{ error.age.0 }} </div>
+        <div>{{ other_error }}</div>
+        <div><input type="submit" value="提交"></div>
+    </form>
+<div>{{ error }}</div>
+</body>
+</html>

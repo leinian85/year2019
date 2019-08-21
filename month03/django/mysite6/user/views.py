@@ -95,6 +95,39 @@ def logout_view(request):
 
     # return HttpResponse("添加成功")
 
+from . import forms
 
+def reg2_view(request):
+    if request.method == 'GET':
+        myform1 = forms.MyRegFrom()
+        return render(request,
+                      'user/reg2.html',
+                      locals())
+    elif request.method == 'POST':
+        myform = forms.MyRegFrom(request.POST)
+        if myform.is_valid():
+            dic = myform.cleaned_data
+            username = dic['username']
+            password1 = dic['password']
+            password2 = dic['password2']
+            return HttpResponse(str(dic))
+        else:
+            return HttpResponse("表单验证失败")
+
+def up_user(request):
+    if request.method == "GET":
+        return (request,"user/up_user.html")
+    elif request.method == "POST":
+        user_id = request.session["user"]["id"]
+        old_pwd = request.POST.get("old_pwd")
+        pwd1 = request.POST.get("pwd1")
+        pwd2 = request.POST.get("pwd2")
+        user = models.User.objects.get(id = user_id)
+        if user.check_password(old_pwd):
+            user.update(password = pwd2)
+            return HttpResponseRedirect('/')
+        else:
+            error_msg = "旧密码不正确"
+            return render(request,"user/up_user.html",locals())
 
 

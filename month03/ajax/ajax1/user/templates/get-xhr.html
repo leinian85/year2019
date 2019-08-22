@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>get-xhr</title>
+    <script src="/static/js/common.js"></script>
+</head>
+<body>
+    <input type="text" id="name">
+    <button onclick="getXhr()" >xhr-get</button>
+    <div id = "show"></div>
+    <script>
+        function getXhr(){
+            // 1.创建 Xhr
+            var xhr = createXhr();
+            // 2.创建请求
+            name = document.getElementById("name").value;
+            console.log(name)
+            xhr.open('get','/user/get-xhr-server?uname='+name,true)
+            // 3.设置回调
+            xhr.onreadystatechange = function(){
+                // 判断状态
+                if (xhr.readyState == 4 && xhr.status == 200){
+                    document.getElementById('show').innerHTML = xhr.responseText;
+                }
+            }
+            // 4.发送请求
+            xhr.send(null);
+        }
+
+
+    </script>
+</body>
+</html>

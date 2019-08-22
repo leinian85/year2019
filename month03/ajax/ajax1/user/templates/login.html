@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="/static/js/common.js"></script>
+    <script src="/static/js/jquery.min.js"></script>
+</head>
+<body>
+    {% csrf_token %}
+    <div>
+        用户名: <input type="text" name = "uname" id = "uname">
+    </div>
+    <div>
+        密码: <input type="password" name = "upwd" id = "upwd">
+    </div>
+    <div>
+        <input type="button" value="提交" id="btn">
+    </div>
+
+    <script>
+        $(function(){
+            $("#btn").click(function(){
+                var xhr = createXhr();
+                var uname = $("#uname").val()
+                var upwd = $("#upwd").val()
+                var csrf = $("[name='csrfmiddlewaretoken']").val()
+                var url = '/user/login'
+                xhr.open('post',url,true);
+                xhr.onreadystatechange = function(){
+                    if (xhr.readyState == 4 && xhr.status==200){
+                        alert(xhr.responseText);
+                    }
+
+                }
+                // 设置请求头 content-type
+                xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+                // 发送请求
+                var params = 'uname='+uname+'&upwd='+upwd+'&csrfmiddlewaretoken='+csrf;
+                xhr.send(params)
+
+
+
+            })
+        })
+
+    </script>
+</body>
+</html>

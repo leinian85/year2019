@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="/static/js/jquery.min.js"></script>
+</head>
+<body>
+    <script>
+        $(function(){
+            $("#btn").click(function(){
+                var url = '/ajax/jquery_get_server/'
+                $.get(url,'name=铁锤妹妹&age=21',function(data){
+                    <!--var msg = "name is "+data.name;-->
+                    <!--msg += "age is "+data.age;-->
+                    <!--data_json = JSON.parse(data)-->
+
+                    var name_list = "";
+                    for(i=0;i<data.length;i++){
+                        name_list += ' name:'+data[i].name +' age:'+ data[i].age
+                    }
+                    $("#show").html(name_list);
+                },'json');
+
+            })
+
+        })
+
+    </script>
+    <button id="btn">jquery</button>
+    <div id = "show"></div>
+</body>
+</html>

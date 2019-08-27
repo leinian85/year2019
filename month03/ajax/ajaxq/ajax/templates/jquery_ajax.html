@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="/static/js/jquery.min.js"></script>
+</head>
+<body>
+    <script>
+        $(function(){
+            $("#btn").click(function(){
+                var parmas = {
+                    url : '/ajax/jquery_ajax_server/',
+                    type : 'get',
+                    dataType : 'json',
+                    async : true,
+                    success : function(data){
+                        alert(data.name);
+                        $("#loading").hide(3000);
+                        $("#btn").removeAttr("disabled")
+                    },
+                    error : function(data){
+                        console.log("Server is Busy!!!");
+                        $("#loading").hide(3000);
+                        $("#btn").removeAttr("disabled")
+                    },
+                    beforeSend : function(){
+                        $("#loading").show();
+                        $("#btn").attr({'disabled':'disabled'});
+                    }
+                };
+                $.ajax(parmas);
+
+            })
+        })
+    </script>
+
+    <button id="btn" >jruery ajax</button>
+    <span id = "loading" style="display:none">加载中...[我是动画]</span>
+用户名: <input type="text" id="name">
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="/static/js/jquery.min.js" ></script>
+</head>
+<body>
+    <script>
+        $(function(){
+
+            function gethtml(name,age){
+                HTML = "<span>"+name+"</span> <span>"+age+"</span>";
+                return HTML;
+            }
+
+            $("#btn").click(function(){
+                var params = {
+                    url : "/ajax/ajax_list_server/",
+                    dataType : "json",
+                    type : "get",
+                    async : true,
+                    success : function(data){
+                        user = "";
+                        HTML = "";
+                        <!--for(i=0;i<data.length;i++){-->
+                            <!--HTML += "</br>"+ gethtml(data[i].name,data[i].age)-->
+                        <!--}-->
+                        $.each(data,function(index,obj){
+                            HTML += "</br>"+ gethtml(obj.name,obj.age)
+                        })
+                        $("#users").html(HTML)
+                    },
+                    error : function(){
+                        alert("Server is Busy!!!")
+                    }
+                }
+                $.ajax(params)
+
+            })
+
+        })
+
+    </script>
+    <input type="submit" value="查询" id="btn">
+    <div id="users"></div>
+</body>
+</html>

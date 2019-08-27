@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>跨域</title>
+    <script src="/static/js/jquery.min.js"></script>
+</head>
+<body>
+<input type="button" value="跨域请求" id="btn">
+<div id="baidu"></div>
+<script>
+        $(function(){
+        /*
+            function print(data){
+                console.log(typeof(data))
+                console.log("This is " + data)
+            }
+        */
+            function baidu(url){
+                html = "<script src="+url+"><\/script>"
+                return html;
+            }
+
+            $("#btn").click(function(){
+
+                var params = {
+                    //url:"http://localhost:8000/ajax/cross_server/",
+                    url:"http://www.baidu.com",
+                    type:"get",
+                    dataType:"jsonp",
+                    success:function(data){
+                        html = baidu("http://www.baidu.com")
+                        console(html)
+                        $("#baidu").html(html)
+                    }
+                };
+
+                $.ajax(params);
+
+            })
+
+        })
+
+
+</script>
+</body>
+</html>

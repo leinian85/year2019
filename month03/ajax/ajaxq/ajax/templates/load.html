@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>load</title>
+    <script src="/static/js/jquery.min.js"></script>
+</head>
+<body>
+    <p>load</p>
+    <button id="btn">show load</button>
+    <div id="show" ></div>
+    <script>
+        $(function(){
+            $("#btn").click(function(){
+                //$("#show").load('/ajax/load_server #btn2');
+                // 传参
+                //$("#show").load('/ajax/load_server','uname=王大锤&age=28')
+                //$("#show").load('/ajax/load_server',{uname:"王大锤",age:28})
+                <!--$("#show").load('/ajax/load_server',function(){-->
+                    <!--alert("OK")-->
+                <!--})-->
+                $("#show").load('http://www.baidu.com');
+            });
+
+
+
+        })
+
+    </script>
+</body>
+</html>

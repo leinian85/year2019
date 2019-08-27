@@ -1,5 +1,7 @@
+import json
+
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from . import models
 # Create your views here.
 def xhr(request):
@@ -16,20 +18,25 @@ def get_xhr_server(request):
 
 
 
+def check_user(name):
+    count_user = models.User.objects.filter(name = name)
+    if len(count_user) == 0:
+        return True
+    else:
+        return False
+
 
 def xhr_regist(request):
     name = request.GET.get('uname')
-    try:
-        user = models.User.objects.get(name = name)
-        print(name, "  1")
-        return HttpResponse('用户名已经存在!')
-    except:
-        print(name, "  2")
-        return HttpResponse('OK')
+    if check_user(name):
+        return HttpResponse('0')
+    else:
+        return HttpResponse('1')
 
 
 def regist(request):
-    return render(request,'regist.html')
+    if request.method == "GET":
+        return render(request,'regist.html')
 
 
 def login(request):
@@ -40,3 +47,71 @@ def login(request):
         return HttpResponse("OK")
     else:
         return None
+
+
+def regist_post(request):
+    if request.method == "POST":
+        uname = request.POST.get("uname","")
+        upwd = request.POST.get("upwd","")
+        if check_user(uname):
+            auser = models.User.objects.create(name=uname,password = upwd)
+            return HttpResponse("注册成功")
+    return HttpResponse("注册失败")
+
+
+def index(request):
+    return render(request,'index.html')
+
+
+def show(request):
+    result = models.User.objects.all()
+    res = ""
+    for user in result:
+        res = res+"|"+user.name+"_"+user.password
+    return HttpResponse(res)
+
+def json_dumps(request):
+    # 方法一:
+    # dic = {
+    #     "uname":"lili",
+    #     "age":"30"
+    # }
+    # jsom_str = json.dumps(dic)
+    # return HttpResponse(jsom_str)
+
+    # 方法二:
+    dic1 = [{
+        "uname": "lili",
+        "age": 30
+    },{
+        "uname": "panghu",
+        "age": 29
+    },{
+        "uname": "xiaofu",
+        "age": 31
+    },
+    ]
+
+    str2_json = json.dumps(dic1,sort_keys=True,separators=(",",":"))
+
+    return HttpResponse(str2_json,content_type="application/json")
+
+    # 方法三:
+    # from django.core import serializers
+    # user = models.User.objects.all()
+    # user_all = serializers.serialize('json',user)
+    # return HttpResponse(user_all,content_type="application/json")
+
+    # 方法四:
+    # users = models.User.objects.all()
+    # l = []
+    # for user in users:
+    #     data = {}
+    #     data["name"] = user.name
+    #     data["password"] = user.password
+    #     l.append(data)
+    #
+    # json_l = json.dumps(l)
+    #
+    #
+    # return HttpResponse(json_l,content_type="application/json")

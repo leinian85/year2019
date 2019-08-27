@@ -1,40 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>注册</title>
-    <script src="/static/js/jquery.min.js"></script>
-    <script src="/static/js/common.js"></script>
-</head>
-<body>
+
+{% extends "index.html" %}
+{% block body %}
+{% csrf_token %}
 <div>
-    用户名: <input type="text" name = "name" id="name" onblur="xhr_check()">
+    用户名: <input type="text" name = "name" id="uname">
     <span id="name_msg"></span>
 </div>
 <div>
-    密码: <input type="password" name = "pwd" id="pwd">
+    密码: <input type="password" name = "pwd" id="upwd">
     <span id="pwd_msg"></span>
+</div>
+<div>
+    <input type="button" value="提交" id ="btn">
 </div>
     <script>
         $(function(){
+            var result = false;
+            $('#uname').blur(function(){
+                result = checkuname();
+            });
 
-            }
-        )   // 页面加载完毕之后执行这个方法
-
-        function xhr_check(){
-            var xhr = createXhr();
-            var uname = $('#name').val();
-            var upwd = $('#pwd').val();
-            var url1 = '/user/xhr_regist?uname='+uname+'&upwd='+upwd;
-            xhr.open('get',url1,true);
-            xhr.onreadystatechange = function(){
-                if(xhr.readyState == 4 && xhr.status == 200){
-                    $('#name_msg').html(xhr.responseText);
+            $('#btn').click(function(){
+                if(result){
+                    regist();
+                }else{
+                    alert("不能注册");
                 }
-            };
-            xhr.send(null);
-        }
+            });
+        })
 
     </script>
-</body>
-</html>
+{% endblock %}

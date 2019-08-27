@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="/static/js/jquery.min.js"></script>
+</head>
+<body>
+<script>
+    $(function(){
+        $("#btn").click(function(){
+            var url = '/ajax/jquery_post_server/';
+            var params={
+            username : $("#username").val(),
+            password : $("#password").val(),
+            csrfmiddlewaretoken: $("[name='csrfmiddlewaretoken']").val(),
+            }
+            $.post(url,params,function(data){
+                alert(data.msg)
+            },"json")
+        })
+    })
+
+</script>
+    {% csrf_token %}
+    <div>
+        用户名: <input type="text" id ="username">
+    </div>
+    <div>
+        密码: <input type="password" id ="password">
+    </div>
+    <div>
+        <button type="submit" id = "btn">提交</button>
+    </div>
+</body>
+</html>

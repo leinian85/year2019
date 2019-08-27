@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/common.js"></script>
+    <script src="/static/js/user.js"></script>
+    <script src="/static/css/style.css"></script>
+</head>
+<body>
+    <a href="/user/regist">增加用户</a>
+    <input type="button" value="查看" id="btn">
+    <div id = "user">
+        <div>用户名</div>
+        <div>密码</div>
+    </div>
+    <div id = "user_info">
+
+    </div>
+    <script>
+        $(function(){
+            $("#btn").click(function(){
+                show();
+            })
+
+        })
+    </script>
+    {% block body %}
+    {% endblock %}
+
+</body>
+</html>

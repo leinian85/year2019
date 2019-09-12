@@ -4,10 +4,20 @@ import  re
 import time
 import random
 import csv
+import pymysql
 
 class spider_movie:
     movies = []
     def __init__(self):
+        self.db = pymysql.connect(
+            host="localhost",
+            user="root",
+            password="123456",
+            database="spider",
+            port=3306,
+            charset='utf8'
+        )
+        self.cursor = self.db.cursor()
         pass
 
     def set_useragent(self):
@@ -48,17 +58,20 @@ class spider_movie:
             writer = csv.writer(f)
             writer.writerows(file)
 
+    def save_mysql(self,file):
+        sql = "insert into filmtab(name,star,time) values(%s,%s,%s)"
+        self.cursor.executemany(sql,file)
+        self.db.commit()
+        self.cursor.close()
+
     def write_html(self):
-        for page in range(1,3):
+        for page in range(1,11):
             url = self.get_url(page)
             print(url)
             html = self.get_html(url)
             self.get_info(html)
-            # movie_info = "猫眼电影-第{}页\n".format(page) + self.get_info(html)
-            # f.write(movie_info)
             time.sleep(random.randint(1,3))
-        # self.sava_csv(spider_movie.movies)
-        self.save_csv_rows(spider_movie.movies)
+        self.save_mysql(self.movies)
 
 sm = spider_movie()
 sm.write_html()

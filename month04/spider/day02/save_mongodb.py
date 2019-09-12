@@ -4,10 +4,14 @@ import  re
 import time
 import random
 import csv
+import pymongo
 
 class spider_movie:
     movies = []
     def __init__(self):
+        self.conn = pymongo.MongoClient("localhost",27017)
+        self.db = self.conn["maoyandb"]
+        self.myset = self.db["filmtab"]
         pass
 
     def set_useragent(self):
@@ -33,20 +37,15 @@ class spider_movie:
         movie_infos = pattern.findall(html)
 
         for info in movie_infos:
-            movie = [info[0],info[1].strip()[3:],info[2][5:15]]
+            movie = {"name":info[0],"star":info[1].strip()[3:],"time":info[2][5:15]}
             spider_movie.movies.append(movie)
 
-    def sava_csv(self,file):
-        with open("猫眼电影.csv","w") as f:
-            writer = csv.writer(f)
-            writer.writerow(["名称", "主演", "上映时间"])
-            for line in file:
-                writer.writerow(line)
+    def save_mongodb(self,file):
+        self.myset.insert_many(file)
 
-    def save_csv_rows(self,file):
-        with open("猫眼电影.csv","w",) as f:
-            writer = csv.writer(f)
-            writer.writerows(file)
+    def save_mongo(self,file):
+        for item in file:
+            self.myset.insert_one(item)
 
     def write_html(self):
         for page in range(1,3):
@@ -54,11 +53,9 @@ class spider_movie:
             print(url)
             html = self.get_html(url)
             self.get_info(html)
-            # movie_info = "猫眼电影-第{}页\n".format(page) + self.get_info(html)
-            # f.write(movie_info)
             time.sleep(random.randint(1,3))
-        # self.sava_csv(spider_movie.movies)
-        self.save_csv_rows(spider_movie.movies)
+        # self.save_mongodb(self.movies)
+        self.save_mongo(self.movies)
 
 sm = spider_movie()
 sm.write_html()

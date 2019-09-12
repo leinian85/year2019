@@ -4,6 +4,7 @@ import  re
 import time
 import random
 import csv
+from lxml import etree
 
 class spider_movie:
     movies = []
@@ -29,12 +30,17 @@ class spider_movie:
         return request.urlopen(res).read().decode()
 
     def get_info(self,html):
-        pattern = re.compile('<dd>.*?title="(.*?)".*?<p class="star">(.*?)</p>.*?<p class="releasetime">(.*?)</p>',re.S)
-        movie_infos = pattern.findall(html)
+        info_list = etree.HTML(html)
+        infoBlock = info_list.xpath('//dd')
+        for info in infoBlock:
+            name = info.xpath('.//p[@class ="name"]/a/text()')[0]
+            star = info.xpath('.//p[@class="star"]/text()')[0].strip()[3:]
 
-        for info in movie_infos:
-            movie = [info[0],info[1].strip()[3:],info[2][5:15]]
+            time = info.xpath('.//p[@class ="releasetime"]/text()')[0][5:15]
+
+            movie = [name, star, time]
             spider_movie.movies.append(movie)
+
 
     def sava_csv(self,file):
         with open("猫眼电影.csv","w") as f:
@@ -54,10 +60,7 @@ class spider_movie:
             print(url)
             html = self.get_html(url)
             self.get_info(html)
-            # movie_info = "猫眼电影-第{}页\n".format(page) + self.get_info(html)
-            # f.write(movie_info)
             time.sleep(random.randint(1,3))
-        # self.sava_csv(spider_movie.movies)
         self.save_csv_rows(spider_movie.movies)
 
 sm = spider_movie()
